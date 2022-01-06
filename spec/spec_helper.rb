@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'capybara/rspec'
 
 RSpec.configure do |config|
@@ -13,4 +15,3 @@ Capybara.configure do |config|
   config.run_server = false
   config.default_driver = :selenium_chrome_headless
 end
-
