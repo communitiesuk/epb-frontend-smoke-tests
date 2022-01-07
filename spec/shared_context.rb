@@ -5,7 +5,7 @@ RSpec.shared_context 'domains' do
   end
 
   def is_production?
-    if ENV['stage'].nil? || ENV['stage'] == 'production'
+    if ENV['REMOTE_STAGE'].nil? || ENV['REMOTE_STAGE'] == 'production'
       true
     else
       false
