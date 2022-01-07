@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-describe 'Find Domestic Certificate By Postcode', journey: true do
+describe 'Find EPC By Postcode', journey: true do
   before do
-    visit 'https://www.gov.uk/find-energy-certificate'
+    visit find_service
     click_on 'Start now'
   end
 

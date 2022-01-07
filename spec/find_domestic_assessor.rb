@@ -2,7 +2,7 @@
 
 describe 'Find a Domestic Assessor in English', journey: true do
   before do
-    visit 'https://www.gov.uk/get-new-energy-certificate'
+    visit get_service
     click_on 'Start now'
     find('#label-domestic').click
     click_on 'Continue'
@@ -58,7 +58,7 @@ describe 'Find a Domestic Assessor in Welsh', journey: true do
   context 'when searching for a new building' do
     before do
       find('#label-domesticSap').click
-      click_on 'Continue'
+      click_on 'Parhau'
       fill_in 'postcode', with: 'SW1A 2AA'
       click_on 'Chwiliwch'
     end

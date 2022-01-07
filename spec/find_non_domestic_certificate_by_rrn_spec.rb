@@ -3,7 +3,7 @@
 describe 'Find Non-Domestic Certificate By RRN in English', journey: true do
   context 'when searching for a domestic certificate' do
     before do
-      visit 'https://www.gov.uk/find-energy-certificate'
+      visit find_service
       click_on 'Start now'
       find('#label-non-domestic').click
       click_on 'Continue'

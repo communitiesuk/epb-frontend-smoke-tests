@@ -2,6 +2,7 @@
 
 require 'capybara/rspec'
 require 'selenium/webdriver'
+require 'shared_context'
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
@@ -10,6 +11,7 @@ RSpec.configure do |config|
 
   config.shared_context_metadata_behavior = :apply_to_host_groups
   config.include Capybara::DSL
+  config.include_context 'domains'
 end
 
 Capybara.configure do |config|

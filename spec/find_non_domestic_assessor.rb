@@ -2,7 +2,7 @@
 
 describe 'Find a Non Domestic Assessor in English', journey: true do
   before do
-    visit 'https://www.gov.uk/get-new-energy-certificate'
+    visit get_serivce
     click_on 'Start now'
     find('#label-non-domestic').click
     click_on 'Continue'
