@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-describe 'Find Domestic Certificate By RRN in English', type: :feature, journey: true do
+describe 'Find Domestic Certificate By RRN in English', journey: true do
   context 'when searching for a domestic certificate' do
     before do
       visit 'https://www.gov.uk/find-energy-certificate'

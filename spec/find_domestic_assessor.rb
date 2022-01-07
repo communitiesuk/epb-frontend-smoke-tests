@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-describe 'Find a Domestic Assessor in English', type: :feature, journey: true do
+describe 'Find a Domestic Assessor in English', journey: true do
   before do
     visit 'https://www.gov.uk/get-new-energy-certificate'
     click_on 'Start now'
@@ -35,7 +35,7 @@ describe 'Find a Domestic Assessor in English', type: :feature, journey: true do
   end
 end
 
-describe 'Find a Domestic Assessor in Welsh', type: :feature, journey: true do
+describe 'Find a Domestic Assessor in Welsh', journey: true do
   before do
     visit 'https://getting-new-energy-certificate.service.gov.uk/find-an-assessor/type-of-property?lang=cy'
     find('#label-domestic').click

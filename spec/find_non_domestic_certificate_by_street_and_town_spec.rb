@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-describe 'Find Non-Domestic Certificate By street and town in English', type: :feature, journey: true do
+describe 'Find Non-Domestic Certificate By street and town in English', journey: true do
   context 'when searching for a domestic certificate' do
     before do
       visit 'https://www.gov.uk/find-energy-certificate'
