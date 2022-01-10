@@ -4,12 +4,16 @@ RSpec.shared_context 'domains' do
   before(:all) do
   end
 
+  after(:all) do
+    str = 'Tested against '
+    str += is_production? ? 'Production' : 'Integration'
+    pp str
+  end
+
   def is_production?
-    if ENV['REMOTE_STAGE'].nil? || ENV['REMOTE_STAGE'] == 'production'
-      true
-    else
-      false
-    end
+    return true if ENV['API'].nil? || ENV['API_STAGE'] == 'production'
+
+    false
   end
 
   let(:get_service) do
