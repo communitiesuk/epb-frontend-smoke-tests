@@ -11,13 +11,13 @@ RSpec.shared_context 'domains' do
   end
 
   def is_production?
-    return true if ENV['API'].nil? || ENV['API_STAGE'] == 'production'
+    return true if ENV['API_STAGE'].nil? || ENV['API_STAGE'] == 'production'
 
     false
   end
 
   let(:get_service) do
-    is_production? ? 'https://www.gov.uk/get-new-energy-certificate' : 'https://mhclg-epb-static-start-pages-integration.london.cloudapps.digital/find-an-energy-certificate.html'
+    is_production? ? 'https://www.gov.uk/get-new-energy-certificate' : 'https://mhclg-epb-static-start-pages-integration.london.cloudapps.digital/getting-a-new-energy-certificate.html'
   end
 
   let(:find_service) do
