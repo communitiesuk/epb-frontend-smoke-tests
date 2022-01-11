@@ -12,8 +12,8 @@ Make sure you have the following installed:
 * [Git](https://git-scm.com) (_optional_)
 
 Run Test
-Journey test are run using Capybara on the Production front end instance.
-To run the test suite use the cmd
+Journey tests are run using Capybara on the Production front end instance.
+To run the test suite use the cmd:
 
 `make test`
 
