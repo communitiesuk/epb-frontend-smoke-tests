@@ -18,7 +18,7 @@ deploy-app: ## Deploys the app to PaaS
 	$(call check_space)
 	$(if ${DEPLOY_APPNAME},,$(error Must specify DEPLOY_APPNAME))
 
-	cf apply-manifest -f manifest.yml
+	t -f manifest.yml
 
 	cf set-env "${DEPLOY_APPNAME}" BUNDLE_WITHOUT "test:worker"
 	cf set-env "${DEPLOY_APPNAME}" STAGE "${PAAS_SPACE}"
@@ -31,4 +31,4 @@ test:
 
 .PHONY: format
 format:
-	@bundle exec rubocop --auto-correct || true
+	@bundle exec rubocop --auto-correct || truecf
