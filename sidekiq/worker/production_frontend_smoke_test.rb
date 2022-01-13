@@ -3,7 +3,7 @@
 require 'sidekiq'
 
 module Worker
-  class ProductionFrontEndSmokeTest
+  class ProductionFrontendSmokeTest
     include Sidekiq::Worker
 
     def perform
