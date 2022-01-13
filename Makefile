@@ -45,4 +45,4 @@ deploy-worker:
 
 	cf push "${DEPLOY_WORKER}" -f worker_manifest.yml
 
-	cf bind ${DEPLOY_WORKER} dluhc-epb-redis-frontend-smoke-tests
+	cf bind-service ${DEPLOY_WORKER} dluhc-epb-redis-frontend-smoke-tests
