@@ -8,4 +8,4 @@ applications:
       - ruby_buildpack
     health-check-type: process
     services:
-      - ç
+      - dluhc-epb-redis-frontend-smoke-tests
