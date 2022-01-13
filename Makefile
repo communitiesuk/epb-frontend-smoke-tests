@@ -29,8 +29,6 @@ deploy-app: ## Deploys the app to PaaS
 	cf apply-manifest -f manifest.yml
 
 	cf set-env "${DEPLOY_APPNAME}" BUNDLE_WITHOUT "test:worker"
-	cf set-env "${DEPLOY_APPNAME}" JWT_ISSUER "${JWT_ISSUER}"
-	cf set-env "${DEPLOY_APPNAME}" JWT_SECRET "${JWT_SECRET}"
 	cf set-env "${DEPLOY_APPNAME}" STAGE "${PAAS_SPACE}"
 
 	cf push "${DEPLOY_APPNAME}" --strategy rolling
