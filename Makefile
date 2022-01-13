@@ -32,3 +32,17 @@ test:
 .PHONY: format
 format:
 	@bundle exec rubocop --auto-correct || truecf
+
+.PHONY: deploy-worker
+deploy-worker:
+	$(call check_space)
+	$(if ${DEPLOY_WORKER},,$(error Must specify DEPLOY_WORKER))
+
+	cf apply-manifest -f worker_manifest.yml
+
+	cf set-env "${DEPLOY_WORKER}" BUNDLE_WITHOUT "test"
+	cf set-env "${DEPLOY_WORKER}" STAGE "${PAAS_SPACE}"
+
+	cf push "${DEPLOY_WORKER}" -f worker_manifest.yml
+
+	cf bind "${DEPLOY_WORKER}" dluhc-epb-redis-frontend-smoke-tests

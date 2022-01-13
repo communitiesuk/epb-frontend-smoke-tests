@@ -6,6 +6,7 @@ runtime-versions:
 env:
   variables:
     DEPLOY_APPNAME: "dluhc-epb-frontend-smoke-tests"
+    DEPLOY_WORKER:  "dluhc-epb-frontend-smoke-tests-worker"
 
   parameter-store:
     PAAS_LOGIN: "epbr-govpaas-monitoring-login"
@@ -26,6 +27,7 @@ phases:
   build:
     commands:
       - make deploy-app
+      - make deploy-worker
   post_build:
     commands:
       - cf logout

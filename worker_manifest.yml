@@ -1,0 +1,11 @@
+applications:
+  - name: dluhc-epb-frontend-smoke-tests-worker
+    memory: 512M
+    instances: 1
+    command: bundle exec sidekiq -r ./sidekiq/config.rb
+    no-route: true
+    buildpacks:
+      - ruby_buildpack
+    health-check-type: process
+    services:
+      - ç

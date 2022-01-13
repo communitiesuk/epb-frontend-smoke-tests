@@ -6,6 +6,7 @@ class ProductionFrontEndJourneyTest
   include Sidekiq::Worker
 
   def perform
-    system('bundle exec rspec spec')
+    pp "I'm running!"
+    # system('bundle exec rspec spec')
   end
 end
