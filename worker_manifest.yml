@@ -6,6 +6,5 @@ applications:
     no-route: true
     buildpacks:
       - ruby_buildpack
-    health-check-type: process
     services:
       - dluhc-epb-redis-frontend-smoke-tests
