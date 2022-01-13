@@ -1,0 +1,8 @@
+---
+applications:
+  - name: dluhc-epb-frontend-smoke-tests
+    command: null
+    memory: 1G
+    buildpacks:
+      - ruby_buildpack
+

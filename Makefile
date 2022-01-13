@@ -12,19 +12,10 @@ endef
 help:
 	@cat $(MAKEFILE_LIST) | grep -E '^[a-zA-Z_-]+:.*?## .*$$' | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
-.PHONY: generate-manifest
-generate-manifest: ## Generate manifest file for PaaS
-	$(if ${DEPLOY_APPNAME},,$(error Must specify DEPLOY_APPNAME))
-	$(if ${PAAS_SPACE},,$(error Must specify PAAS_SPACE))
-	@scripts/generate-paas-manifest.sh ${DEPLOY_APPNAME} ${PAAS_SPACE} > manifest.yml
-
-
 .PHONY: deploy-app
 deploy-app: ## Deploys the app to PaaS
 	$(call check_space)
 	$(if ${DEPLOY_APPNAME},,$(error Must specify DEPLOY_APPNAME))
-
-	@$(MAKE) generate-manifest
 
 	cf apply-manifest -f manifest.yml
 
