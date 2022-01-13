@@ -1,7 +1,9 @@
 ---
 applications:
   - name: dluhc-epb-frontend-smoke-tests
-    command: null
+    command: while true; do sleep 60; done;
+    no-route: true
+    health-check-type: process
     memory: 1G
     buildpacks:
       - ruby_buildpack
