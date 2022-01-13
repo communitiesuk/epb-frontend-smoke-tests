@@ -1,6 +1,7 @@
 PAAS_API ?= api.london.cloud.service.gov.uk
 PAAS_ORG ?= mhclg-energy-performance
 PAAS_SPACE ?= monitoring
+DEPLOY_APPNAME ?= dluhc-epb-frontend-smoke-tests
 
 define check_space
 	@echo "Checking PaaS space is active..."
