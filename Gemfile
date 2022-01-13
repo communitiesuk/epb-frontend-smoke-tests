@@ -16,5 +16,5 @@ source 'https://rubygems.org' do
   gem 'rubocop-rspec', '~> 2.6'
   gem 'sidekiq', '~> 6.3.1'
   gem 'sidekiq-cron', '~> 1.2.0'
-
+  gem 'zeitwerk', '~> 2.4.1'
 end

@@ -2,6 +2,17 @@
 
 require 'sidekiq'
 require 'sidekiq-cron'
+require 'zeitwerk'
+
+class SidekiqLoader
+  def self.setup
+    loader = Zeitwerk::Loader.new
+    loader.push_dir("#{__dir__}/../sidekiq")
+    loader.setup
+  end
+end
+
+SidekiqLoader.setup
 
 environment = 'monitoring'
 
