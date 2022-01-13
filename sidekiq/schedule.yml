@@ -1,5 +1,5 @@
 test_job:
- cron: "* * * * *"
+  cron: "* * * * *"
   class: "Worker::ProductionFrontEndJourneyTest"
   name: "Save previous day statistics -- every day at 3 am"
   queue: default
