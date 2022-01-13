@@ -2,7 +2,6 @@
 
 require 'sidekiq'
 require 'sidekiq-cron'
-require 'rake'
 
 environment = 'monitoring'
 
