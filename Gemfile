@@ -10,11 +10,10 @@ source 'https://rubygems.org' do
   end
 
   group :worker do
-
   end
 
   gem 'json', '~> 2.6', '>= 2.6.1'
-  gem "rake", "~> 13.0", ">= 13.0.6"
+  gem 'rake', '~> 13.0', '>= 13.0.6'
   gem 'rubocop-rspec', '~> 2.6'
   gem 'sidekiq', '~> 6.3.1'
   gem 'sidekiq-cron', '~> 1.2.0'

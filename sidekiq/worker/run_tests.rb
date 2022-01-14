@@ -7,7 +7,6 @@ module Worker
   class RunTests
     include Sidekiq::Worker
 
-
     def perform
       pp "I'm running!"
       rake_task('spec').invoke
@@ -20,6 +19,5 @@ module Worker
       rake.load_rakefile
       rake.tasks.find { |task| task.to_s == name }
     end
-
   end
 end

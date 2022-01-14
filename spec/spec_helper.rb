@@ -3,10 +3,23 @@
 require 'capybara/rspec'
 require 'selenium/webdriver'
 require 'shared_context'
+require 'zeitwerk'
 
+ENV['test_success'] = 'false'
 
+class TestLoader
+  def self.setup
+    @loader = Zeitwerk::Loader.new
+    @loader.push_dir("#{__dir__}/../lib/")
+    @loader.setup
+  end
 
- ENV["test_success"] = 'false'
+  def self.override(path)
+    load path
+  end
+end
+
+TestLoader.setup
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
@@ -16,11 +29,7 @@ RSpec.configure do |config|
   config.shared_context_metadata_behavior = :apply_to_host_groups
   config.include Capybara::DSL
   config.include_context 'domains'
-
 end
-
-
-
 
 Capybara.configure do |config|
   config.run_server = false
