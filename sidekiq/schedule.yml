@@ -1,5 +1,5 @@
 test_job:
   cron: "* * * * *"
-  class: "Worker::Test"
+  class: "Worker::RunTests"
   name: "Run the journey test against production front end"
   queue: default
