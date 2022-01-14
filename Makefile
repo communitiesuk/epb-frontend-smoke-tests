@@ -1,6 +1,6 @@
 PAAS_API ?= api.london.cloud.service.gov.uk
 PAAS_ORG ?= mhclg-energy-performance
-PAAS_SPACE ?= monitoring
+PAAS_SPACE ?= ${STAGE}
 DEPLOY_APPNAME ?= dluhc-epb-frontend-smoke-tests
 
 define check_space
@@ -28,6 +28,7 @@ deploy-app: ## Deploys the app to PaaS
 .PHONY: test
 test:
 	@bundle exec rspec spec --format documentation
+	@echo ">>>>> finished test"``
 
 .PHONY: format
 format:

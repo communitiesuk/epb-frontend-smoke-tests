@@ -14,7 +14,7 @@ end
 
 SidekiqLoader.setup
 
-environment = 'monitoring'
+environment = ENV["STAGE"] || "development"
 
 unless %w[development test].include? environment
   redis_url = RedisConfigurationReader.read_configuration_url("dluhc-epb-redis-frontend-smoke-tests")
