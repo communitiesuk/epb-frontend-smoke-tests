@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'capybara/rspec'
+require 'http'
 require 'selenium/webdriver'
 require 'shared_context'
 require 'zeitwerk'
@@ -10,7 +11,7 @@ ENV['test_success'] = 'false'
 class TestLoader
   def self.setup
     @loader = Zeitwerk::Loader.new
-    @loader.push_dir("#{__dir__}/../lib/")
+    @loader.push_dir("#{__dir__}/../sidekiq/")
     @loader.setup
   end
 

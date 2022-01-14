@@ -1,1 +1,163 @@
-{"version":"3.10.1","examples":[{"id":"./spec/find_domestic_assesor_by_name_spec.rb[1:1:1]","description":"shows assessor search results","full_description":"Find a Domestic Assessor English when searching for an existing building by name shows assessor search results","status":"passed","file_path":"./spec/find_domestic_assesor_by_name_spec.rb","line_number":20,"run_time":7.431201,"pending_message":null},{"id":"./spec/find_domestic_assesor_by_name_spec.rb[1:2:1]","description":"shows assessor search results","full_description":"Find a Domestic Assessor English when searching for new building by name shows assessor search results","status":"passed","file_path":"./spec/find_domestic_assesor_by_name_spec.rb","line_number":34,"run_time":1.35148,"pending_message":null},{"id":"./spec/find_domestic_certificate_by_postcode_spec.rb[1:1:1]","description":"returns page with expected content","full_description":"Find EPC By Postcode when searching for a domestic certificate returns page with expected content","status":"passed","file_path":"./spec/find_domestic_certificate_by_postcode_spec.rb","line_number":10,"run_time":0.813087,"pending_message":null},{"id":"./spec/find_domestic_certificate_by_postcode_spec.rb[1:2:1]","description":"shows existence of those certificates on the search results page","full_description":"Find EPC By Postcode with a postcode for which certificates exist shows existence of those certificates on the search results page","status":"passed","file_path":"./spec/find_domestic_certificate_by_postcode_spec.rb","line_number":23,"run_time":0.952256,"pending_message":null},{"id":"./spec/find_domestic_certificate_by_postcode_spec.rb[1:2:2:1]","description":"shows the certificate with the expected header","full_description":"Find EPC By Postcode with a postcode for which certificates exist when selecting a known certificate from the results list shows the certificate with the expected header","status":"passed","file_path":"./spec/find_domestic_certificate_by_postcode_spec.rb","line_number":32,"run_time":1.66493,"pending_message":null},{"id":"./spec/find_domestic_certificate_by_rrn_spec.rb[1:1:1]","description":"shows the certificate with the expected header","full_description":"Find Domestic Certificate By RRN in English when searching for a domestic certificate shows the certificate with the expected header","status":"passed","file_path":"./spec/find_domestic_certificate_by_rrn_spec.rb","line_number":15,"run_time":1.592564,"pending_message":null},{"id":"./spec/find_domestic_certificate_by_rrn_spec.rb[2:1:1]","description":"shows the certificate with the expected header","full_description":"Find Domestic Certificate By RRN in Welsh when searching for a domestic certificate in Welsh shows the certificate with the expected header","status":"passed","file_path":"./spec/find_domestic_certificate_by_rrn_spec.rb","line_number":33,"run_time":1.138663,"pending_message":null},{"id":"./spec/find_domestic_certificate_by_street_and_town_spec.rb[1:1:1]","description":"shows the certificate with the expected header","full_description":"Find Domestic Certificate By street and town in English when searching for a domestic certificate shows the certificate with the expected header","status":"passed","file_path":"./spec/find_domestic_certificate_by_street_and_town_spec.rb","line_number":17,"run_time":1.290591,"pending_message":null},{"id":"./spec/find_domestic_certificate_by_street_and_town_spec.rb[2:1:1]","description":"shows the certificate with the expected header","full_description":"Find Domestic Certificate By street and town in Welsh when searching for a domestic certificate in Welsh shows the certificate with the expected header","status":"passed","file_path":"./spec/find_domestic_certificate_by_street_and_town_spec.rb","line_number":37,"run_time":1.072908,"pending_message":null},{"id":"./spec/find_non_domestic_assesor_by_name_spec.rb[1:1:1]","description":"shows assessor search results","full_description":"Find a Non Domestic Assessor English when searching by name shows assessor search results","status":"passed","file_path":"./spec/find_non_domestic_assesor_by_name_spec.rb","line_number":18,"run_time":1.168738,"pending_message":null},{"id":"./spec/find_non_domestic_certificate_by_postcode_spec.rb[1:1:1]","description":"shows the certificate with the expected header","full_description":"Find Non-Dom EPC By Postcode in English when searching for a domestic certificate shows the certificate with the expected header","status":"passed","file_path":"./spec/find_non_domestic_certificate_by_postcode_spec.rb","line_number":15,"run_time":1.444731,"pending_message":null},{"id":"./spec/find_non_domestic_certificate_by_postcode_spec.rb[2:1:1]","description":"shows the certificate with the expected header","full_description":"Find Non-Dom EPC By Postcode in Welsh when searching for a domestic certificate in Welsh shows the certificate with the expected header","status":"passed","file_path":"./spec/find_non_domestic_certificate_by_postcode_spec.rb","line_number":33,"run_time":1.817128,"pending_message":null},{"id":"./spec/find_non_domestic_certificate_by_rrn_spec.rb[1:1:1]","description":"shows the certificate with the expected header","full_description":"Find Non-Domestic Certificate By RRN in English when searching for a domestic certificate shows the certificate with the expected header","status":"passed","file_path":"./spec/find_non_domestic_certificate_by_rrn_spec.rb","line_number":15,"run_time":1.793918,"pending_message":null},{"id":"./spec/find_non_domestic_certificate_by_rrn_spec.rb[2:1:1]","description":"shows the certificate with the expected header","full_description":"Find Non-Domestic Certificate By Postcode in Welsh when searching for a domestic certificate in Welsh shows the certificate with the expected header","status":"passed","file_path":"./spec/find_non_domestic_certificate_by_rrn_spec.rb","line_number":33,"run_time":1.364056,"pending_message":null},{"id":"./spec/find_non_domestic_certificate_by_street_and_town_spec.rb[1:1:1]","description":"shows the certificate with the expected header","full_description":"Find Non-Domestic Certificate By street and town in English when searching for a domestic certificate shows the certificate with the expected header","status":"passed","file_path":"./spec/find_non_domestic_certificate_by_street_and_town_spec.rb","line_number":17,"run_time":3.569644,"pending_message":null}],"summary":{"duration":28.49438,"example_count":15,"failure_count":0,"pending_count":0,"errors_outside_of_examples_count":0},"summary_line":"15 examples, 0 failures"}
+{
+  "version": "3.10.1",
+  "examples": [
+    {
+      "id": "./spec/find_domestic_assesor_by_name_spec.rb[1:1:1]",
+      "description": "shows assessor search results",
+      "full_description": "Find a Domestic Assessor English when searching for an existing building by name shows assessor search results",
+      "status": "passed",
+      "file_path": "./spec/find_domestic_assesor_by_name_spec.rb",
+      "line_number": 20,
+      "run_time": 7.431201,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/find_domestic_assesor_by_name_spec.rb[1:2:1]",
+      "description": "shows assessor search results",
+      "full_description": "Find a Domestic Assessor English when searching for new building by name shows assessor search results",
+      "status": "passed",
+      "file_path": "./spec/find_domestic_assesor_by_name_spec.rb",
+      "line_number": 34,
+      "run_time": 1.35148,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/find_domestic_certificate_by_postcode_spec.rb[1:1:1]",
+      "description": "returns page with expected content",
+      "full_description": "Find EPC By Postcode when searching for a domestic certificate returns page with expected content",
+      "status": "passed",
+      "file_path": "./spec/find_domestic_certificate_by_postcode_spec.rb",
+      "line_number": 10,
+      "run_time": 0.813087,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/find_domestic_certificate_by_postcode_spec.rb[1:2:1]",
+      "description": "shows existence of those certificates on the search results page",
+      "full_description": "Find EPC By Postcode with a postcode for which certificates exist shows existence of those certificates on the search results page",
+      "status": "passed",
+      "file_path": "./spec/find_domestic_certificate_by_postcode_spec.rb",
+      "line_number": 23,
+      "run_time": 0.952256,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/find_domestic_certificate_by_postcode_spec.rb[1:2:2:1]",
+      "description": "shows the certificate with the expected header",
+      "full_description": "Find EPC By Postcode with a postcode for which certificates exist when selecting a known certificate from the results list shows the certificate with the expected header",
+      "status": "passed",
+      "file_path": "./spec/find_domestic_certificate_by_postcode_spec.rb",
+      "line_number": 32,
+      "run_time": 1.66493,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/find_domestic_certificate_by_rrn_spec.rb[1:1:1]",
+      "description": "shows the certificate with the expected header",
+      "full_description": "Find Domestic Certificate By RRN in English when searching for a domestic certificate shows the certificate with the expected header",
+      "status": "passed",
+      "file_path": "./spec/find_domestic_certificate_by_rrn_spec.rb",
+      "line_number": 15,
+      "run_time": 1.592564,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/find_domestic_certificate_by_rrn_spec.rb[2:1:1]",
+      "description": "shows the certificate with the expected header",
+      "full_description": "Find Domestic Certificate By RRN in Welsh when searching for a domestic certificate in Welsh shows the certificate with the expected header",
+      "status": "passed",
+      "file_path": "./spec/find_domestic_certificate_by_rrn_spec.rb",
+      "line_number": 33,
+      "run_time": 1.138663,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/find_domestic_certificate_by_street_and_town_spec.rb[1:1:1]",
+      "description": "shows the certificate with the expected header",
+      "full_description": "Find Domestic Certificate By street and town in English when searching for a domestic certificate shows the certificate with the expected header",
+      "status": "passed",
+      "file_path": "./spec/find_domestic_certificate_by_street_and_town_spec.rb",
+      "line_number": 17,
+      "run_time": 1.290591,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/find_domestic_certificate_by_street_and_town_spec.rb[2:1:1]",
+      "description": "shows the certificate with the expected header",
+      "full_description": "Find Domestic Certificate By street and town in Welsh when searching for a domestic certificate in Welsh shows the certificate with the expected header",
+      "status": "passed",
+      "file_path": "./spec/find_domestic_certificate_by_street_and_town_spec.rb",
+      "line_number": 37,
+      "run_time": 1.072908,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/find_non_domestic_assesor_by_name_spec.rb[1:1:1]",
+      "description": "shows assessor search results",
+      "full_description": "Find a Non Domestic Assessor English when searching by name shows assessor search results",
+      "status": "passed",
+      "file_path": "./spec/find_non_domestic_assesor_by_name_spec.rb",
+      "line_number": 18,
+      "run_time": 1.168738,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/find_non_domestic_certificate_by_postcode_spec.rb[1:1:1]",
+      "description": "shows the certificate with the expected header",
+      "full_description": "Find Non-Dom EPC By Postcode in English when searching for a domestic certificate shows the certificate with the expected header",
+      "status": "passed",
+      "file_path": "./spec/find_non_domestic_certificate_by_postcode_spec.rb",
+      "line_number": 15,
+      "run_time": 1.444731,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/find_non_domestic_certificate_by_postcode_spec.rb[2:1:1]",
+      "description": "shows the certificate with the expected header",
+      "full_description": "Find Non-Dom EPC By Postcode in Welsh when searching for a domestic certificate in Welsh shows the certificate with the expected header",
+      "status": "passed",
+      "file_path": "./spec/find_non_domestic_certificate_by_postcode_spec.rb",
+      "line_number": 33,
+      "run_time": 1.817128,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/find_non_domestic_certificate_by_rrn_spec.rb[1:1:1]",
+      "description": "shows the certificate with the expected header",
+      "full_description": "Find Non-Domestic Certificate By RRN in English when searching for a domestic certificate shows the certificate with the expected header",
+      "status": "passed",
+      "file_path": "./spec/find_non_domestic_certificate_by_rrn_spec.rb",
+      "line_number": 15,
+      "run_time": 1.793918,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/find_non_domestic_certificate_by_rrn_spec.rb[2:1:1]",
+      "description": "shows the certificate with the expected header",
+      "full_description": "Find Non-Domestic Certificate By Postcode in Welsh when searching for a domestic certificate in Welsh shows the certificate with the expected header",
+      "status": "passed",
+      "file_path": "./spec/find_non_domestic_certificate_by_rrn_spec.rb",
+      "line_number": 33,
+      "run_time": 1.364056,
+      "pending_message": null
+    },
+    {
+      "id": "./spec/find_non_domestic_certificate_by_street_and_town_spec.rb[1:1:1]",
+      "description": "shows the certificate with the expected header",
+      "full_description": "Find Non-Domestic Certificate By street and town in English when searching for a domestic certificate shows the certificate with the expected header",
+      "status": "passed",
+      "file_path": "./spec/find_non_domestic_certificate_by_street_and_town_spec.rb",
+      "line_number": 17,
+      "run_time": 3.569644,
+      "pending_message": null
+    }
+  ],
+  "summary": {
+    "duration": 28.49438,
+    "example_count": 15,
+    "failure_count": 0,
+    "pending_count": 0,
+    "errors_outside_of_examples_count": 0
+  },
+  "summary_line": "15 examples, 0 failures"
+}

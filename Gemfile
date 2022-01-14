@@ -12,6 +12,7 @@ source 'https://rubygems.org' do
   group :worker do
   end
 
+  gem 'http'
   gem 'json', '~> 2.6', '>= 2.6.1'
   gem 'rake', '~> 13.0', '>= 13.0.6'
   gem 'rubocop-rspec', '~> 2.6'
