@@ -22,6 +22,7 @@ deploy-app: ## Deploys the app to PaaS
 
 	cf set-env "${DEPLOY_APPNAME}" BUNDLE_WITHOUT "test:worker"
 	cf set-env "${DEPLOY_APPNAME}" STAGE "${PAAS_SPACE}"
+	cf set-env "${DEPLOY_APPNAME}" EPB_TEAM_SLACK_URL "${EPB_TEAM_SLACK_URL}"
 
 	cf push "${DEPLOY_APPNAME}" --strategy rolling
 
@@ -43,6 +44,7 @@ deploy-worker:
 
 	cf set-env "${DEPLOY_WORKER}" BUNDLE_WITHOUT "test"
 	cf set-env "${DEPLOY_WORKER}" STAGE "${PAAS_SPACE}"
+	cf set-env "${DEPLOY_APPNAME}" EPB_TEAM_SLACK_URL "${EPB_TEAM_SLACK_URL}"
 
 	cf push "${DEPLOY_WORKER}" -f worker_manifest.yml
 

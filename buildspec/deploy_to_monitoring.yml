@@ -14,6 +14,7 @@ env:
     PAAS_SPACE: "epbr-govpaas-monitoring-space"
     PAAS_API: "epbr-govpaas-api"
     PAAS_ORG: "epbr-govpaas-orgname"
+    EPB_TEAM_SLACK_URL: "epb-team-slack-url"
 
 phases:
   install:

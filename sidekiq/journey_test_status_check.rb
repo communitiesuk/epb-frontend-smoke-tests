@@ -24,10 +24,13 @@ class JourneyTestStatusCheck
     error_hash = formatted_errors
     error_text = 'EPB FRONTEND SMOKE TEST FAILURE: '
     error_hash.each do |e|
-      error_text += "\n Test: #{e[:full_description]} has failed\nwith error: #{e[:message]}\n on line: #{e[:rspec_file_path]}\n"
+      error_text += "\n
+                      Test: #{e[:full_description]} has failed\n
+                      with error: #{e[:message]}\n
+                      on line: #{e[:rspec_file_path]}\n"
     end
 
-    webhook_url = ''
+    webhook_url = ENV['EPB_TEAM_SLACK_URL']
     payload = { username: 'Energy Performance of Buildings', channel: 'team-epb', text: error_text,
                 mrkdwn: true }
 

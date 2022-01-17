@@ -11,6 +11,13 @@ describe JourneyTestStatusCheck do
   end
 
   context 'when there are failures' do
+    before do
+      WebMock.enable!
+      allow(ENV).to receive(:[])
+    end
+
+    after { WebMock.disable! }
+
     it 'returns the journey test status in a ruby object' do
       result = helper.get_failure_count('spec/fixtures/output_failure.json')
       expect(result).to eq(11)
@@ -33,6 +40,27 @@ describe JourneyTestStatusCheck do
       expect(result.first).to eq(errors)
     end
 
+    # it 'sends a Slack notification to this webhook if the URL is set' do
+    #   allow(ENV).to receive(:[]).with("EPB_TEAM_SLACK_URL").and_return("https://example.com/webhook")
+    #
+    #   slack_request = WebMock.stub_request(:post, 'https://example.com/webhook')
+    #                          .to_return(status: 200, headers: {})
+    #
+    #   errors = helper.format_errors(JSON.load_file('spec/fixtures/output_failure.json'))
+    #   pp helper.post_errors_to_slack(errors)
+    #   expect(slack_request).to have_been_made
+    # end
+
+    # it 'does not send a Slack notification if EPB_TEAM_SLACK_URL is empty' do
+    #   allow(ENV).to receive(:[]).with("EPB_TEAM_SLACK_URL").and_return(nil)
+    #
+    #   slack_request = stub_request(:post, 'https://example.com/webhook')
+    #                     .to_return(status: 200, headers: {})
+    #
+    #   invoke_worker
+    #   expect(slack_request).not_to have_been_made
+    # end
+    #
     # it 'post the errors to slack' do
     #   errors = helper.format_errors(JSON.load_file('spec/fixtures/output_failure.json'))
     #
