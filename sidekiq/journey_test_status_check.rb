@@ -31,9 +31,13 @@ class JourneyTestStatusCheck
     end
 
     webhook_url = ENV['EPB_TEAM_SLACK_URL']
-    payload = { username: 'Energy Performance of Buildings', channel: 'team-epb', text: error_text,
-                mrkdwn: true }
+    if webhook_url.nil?
+      raise StandardError, 'There is no Slack URL set'
+    else
+      payload = { username: 'Energy Performance of Buildings', channel: 'team-epb', text: error_text,
+                  mrkdwn: true }
 
-    HTTP.post(webhook_url, body: payload.to_json)
+      HTTP.post(webhook_url, body: payload.to_json)
+    end
   end
 end

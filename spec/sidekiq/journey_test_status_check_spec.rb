@@ -40,31 +40,27 @@ describe JourneyTestStatusCheck do
       expect(result.first).to eq(errors)
     end
 
-    # it 'sends a Slack notification to this webhook if the URL is set' do
-    #   allow(ENV).to receive(:[]).with("EPB_TEAM_SLACK_URL").and_return("https://example.com/webhook")
-    #
-    #   slack_request = WebMock.stub_request(:post, 'https://example.com/webhook')
-    #                          .to_return(status: 200, headers: {})
-    #
-    #   errors = helper.format_errors(JSON.load_file('spec/fixtures/output_failure.json'))
-    #   pp helper.post_errors_to_slack(errors)
-    #   expect(slack_request).to have_been_made
-    # end
+    it 'sends a Slack notification to this webhook if the URL is set' do
+      allow(ENV).to receive(:[]).with("EPB_TEAM_SLACK_URL").and_return("https://example.com/webhook")
 
-    # it 'does not send a Slack notification if EPB_TEAM_SLACK_URL is empty' do
-    #   allow(ENV).to receive(:[]).with("EPB_TEAM_SLACK_URL").and_return(nil)
-    #
-    #   slack_request = stub_request(:post, 'https://example.com/webhook')
-    #                     .to_return(status: 200, headers: {})
-    #
-    #   invoke_worker
-    #   expect(slack_request).not_to have_been_made
-    # end
-    #
-    # it 'post the errors to slack' do
-    #   errors = helper.format_errors(JSON.load_file('spec/fixtures/output_failure.json'))
-    #
-    #   expect { helper.post_errors_to_slack(errors) }.not_to raise_error
-    # end
+      slack_request = WebMock.stub_request(:post, 'https://example.com/webhook')
+                             .to_return(status: 200, headers: {})
+
+      errors = helper.format_errors(JSON.load_file('spec/fixtures/output_failure.json'))
+      helper.post_errors_to_slack(errors)
+
+      expect(slack_request).to have_been_made
+    end
+
+    it 'raise an error if EPB_TEAM_SLACK_URL is empty' do
+      allow(ENV).to receive(:[]).with("EPB_TEAM_SLACK_URL").and_return(nil)
+
+      stub_request(:post, 'https://example.com/webhook')
+                        .to_return(status: 200, headers: {})
+
+      errors = helper.format_errors(JSON.load_file('spec/fixtures/output_failure.json'))
+
+      expect { helper.post_errors_to_slack(errors) }.to raise_error(StandardError, 'There is no Slack URL set')
+    end
   end
 end

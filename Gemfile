@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-ruby '3.0.2'
+ruby "~> 3.0.0"
 
 source 'https://rubygems.org' do
   group :test do
