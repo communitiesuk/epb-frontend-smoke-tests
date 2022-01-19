@@ -22,7 +22,8 @@ describe 'Find Domestic Certificate By RRN in Welsh', type: :feature, journey: t
   # TODO: When we have a Welsh homepage update this section to start there
   context 'when searching for a domestic certificate in Welsh' do
     before do
-      visit 'https://find-energy-certificate.service.gov.uk/find-a-certificate/type-of-property?lang=cy'
+      visit find_service_welsh
+      click_on 'Dechrau nawr'
       find('#label-domestic').click
       click_on 'Parhau'
       click_on 'chwilio am EPC drwy ddefnyddio rhif y dystysgrif'

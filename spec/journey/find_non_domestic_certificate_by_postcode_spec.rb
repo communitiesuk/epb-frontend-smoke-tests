@@ -19,10 +19,10 @@ describe 'Find Non-Dom EPC By Postcode in English', journey: true do
 end
 
 describe 'Find Non-Dom EPC By Postcode in Welsh', journey: true do
-  # TODO: When we have a Welsh homepage update this section to start there
   context 'when searching for a domestic certificate in Welsh' do
     before do
-      visit 'https://find-energy-certificate.service.gov.uk/find-a-certificate/type-of-property?lang=cy'
+      visit find_service_welsh
+      click_on 'Dechrau nawr'
       find('#label-non-domestic').click
       click_on 'Parhau'
       fill_in 'postcode', with: 'SW1A 2AA'
