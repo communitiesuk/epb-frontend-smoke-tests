@@ -2,7 +2,7 @@
 
 describe 'Find a Non Domestic Assessor in English', journey: true do
   before do
-    visit get_serivce
+    visit get_service
     click_on 'Start now'
     find('#label-non-domestic').click
     click_on 'Continue'
@@ -18,6 +18,7 @@ end
 describe 'Find a Non Domestic Assessor in Welsh', journey: true do
   before do
     visit get_service_welsh
+    click_on 'Dechrau nawr'
     find('#label-non-domestic').click
     click_on 'Parhau'
     fill_in 'postcode', with: 'SW1A 2AA'
