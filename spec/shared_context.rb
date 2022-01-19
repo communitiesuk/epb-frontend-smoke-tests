@@ -23,4 +23,12 @@ RSpec.shared_context 'domains' do
   let(:find_service) do
     is_production? ? 'https://www.gov.uk/find-energy-certificate' : 'https://mhclg-epb-static-start-pages-integration.london.cloudapps.digital/find-an-energy-certificate.html'
   end
+
+  let(:get_service_welsh) do
+    is_production? ? 'https://www.gov.uk/cael-tystysgrif-ynni-newydd' : 'https://mhclg-epb-static-start-pages-integration.london.cloudapps.digital/sicrhau-tystysgrif-ynni-newydd.html'
+  end
+
+  let(:find_service_welsh) do
+    is_production? ? 'https://www.gov.uk/dod-o-hyd-i-dystysgrif-ynni' : 'https://mhclg-epb-static-start-pages-integration.london.cloudapps.digital/chwiliwch-am-dystysgrif-ynni.html'
+  end
 end

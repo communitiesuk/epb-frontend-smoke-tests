@@ -17,7 +17,7 @@ end
 
 describe 'Find a Non Domestic Assessor in Welsh', journey: true do
   before do
-    visit 'https://getting-new-energy-certificate.service.gov.uk/find-an-assessor/type-of-property?lang=cy'
+    visit get_service_welsh
     find('#label-non-domestic').click
     click_on 'Parhau'
     fill_in 'postcode', with: 'SW1A 2AA'

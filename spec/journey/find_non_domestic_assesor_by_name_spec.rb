@@ -20,3 +20,24 @@ describe 'Find a Non Domestic Assessor English', journey: true do
     end
   end
 end
+
+describe 'Find a Non Domestic Assessor Welsh', journey: true do
+  before do
+    visit get_service_welsh
+    click_on 'Dechrau nawr'
+    find('#label-non-domestic').click
+    click_on 'Parhau'
+  end
+
+  context 'when searching for an assessor by name' do
+    before do
+      click_on 'chwilio am asesydd yn ôl enw'
+      fill_in 'name', with: 'Andrew Parkin'
+      click_on 'Chwiliwch'
+    end
+
+    it 'shows assessor search results' do
+      expect(page).to have_content /canlyniadau ar gyfer yr enw Andrew Parkin/
+    end
+  end
+end
