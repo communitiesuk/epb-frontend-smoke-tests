@@ -1,5 +1,6 @@
 # frozen_string_literal: true
-require "webmock/rspec"
+
+require 'webmock/rspec'
 
 describe JourneyTestStatusCheck do
   let(:helper) { described_class.new }
@@ -44,7 +45,7 @@ describe JourneyTestStatusCheck do
     end
 
     it 'sends a Slack notification to this webhook if the URL is set' do
-      allow(ENV).to receive(:[]).with("EPB_TEAM_SLACK_URL").and_return("https://example.com/webhook")
+      allow(ENV).to receive(:[]).with('EPB_TEAM_SLACK_URL').and_return('https://example.com/webhook')
 
       slack_request = WebMock.stub_request(:post, 'https://example.com/webhook')
                              .to_return(status: 200, headers: {})
@@ -55,11 +56,13 @@ describe JourneyTestStatusCheck do
     end
 
     it 'raise an error if EPB_TEAM_SLACK_URL is empty' do
-      allow(ENV).to receive(:[]).with("EPB_TEAM_SLACK_URL").and_return(nil)
+      allow(ENV).to receive(:[]).with('EPB_TEAM_SLACK_URL').and_return(nil)
 
       stub_request(:post, 'https://example.com/webhook').to_return(status: 200, headers: {})
 
-      expect { helper.format_and_send_errors(rspec_failures) }.to raise_error(StandardError, 'There is no Slack URL set')
+      expect do
+        helper.format_and_send_errors(rspec_failures)
+      end.to raise_error(StandardError, 'There is no Slack URL set')
     end
   end
 end
