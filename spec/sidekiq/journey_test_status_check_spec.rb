@@ -1,11 +1,14 @@
 # frozen_string_literal: true
+require "webmock/rspec"
 
 describe JourneyTestStatusCheck do
   let(:helper) { described_class.new }
+  let(:rspec_success) { JSON.load_file('spec/fixtures/output_success.json') }
+  let(:rspec_failures) { JSON.load_file('spec/fixtures/output_failure.json') }
 
   context 'when there are no failures' do
     it 'returns the journey test status in a ruby object' do
-      result = helper.get_failure_count('spec/fixtures/output_success.json')
+      result = helper.get_failure_count(rspec_success)
       expect(result).to eq(0)
     end
   end
@@ -19,12 +22,12 @@ describe JourneyTestStatusCheck do
     after { WebMock.disable! }
 
     it 'returns the journey test status in a ruby object' do
-      result = helper.get_failure_count('spec/fixtures/output_failure.json')
+      result = helper.get_failure_count(rspec_failures)
       expect(result).to eq(11)
     end
 
     it 'returns only the errors' do
-      result = helper.format_errors(JSON.load_file('spec/fixtures/output_failure.json'))
+      result = helper.format_errors(rspec_failures)
       expect(result.count).to eq(11)
     end
 
@@ -36,7 +39,7 @@ describe JourneyTestStatusCheck do
           rspec_file_path: './spec/journey/find_domestic_assesor_by_name_spec.rb[1:1:1]'
         }
 
-      result = helper.format_errors(JSON.load_file('spec/fixtures/output_failure.json'))
+      result = helper.format_errors(rspec_failures)
       expect(result.first).to eq(errors)
     end
 
@@ -46,8 +49,7 @@ describe JourneyTestStatusCheck do
       slack_request = WebMock.stub_request(:post, 'https://example.com/webhook')
                              .to_return(status: 200, headers: {})
 
-      errors = helper.format_errors(JSON.load_file('spec/fixtures/output_failure.json'))
-      helper.post_errors_to_slack(errors)
+      helper.format_and_send_errors(rspec_failures)
 
       expect(slack_request).to have_been_made
     end
@@ -55,12 +57,9 @@ describe JourneyTestStatusCheck do
     it 'raise an error if EPB_TEAM_SLACK_URL is empty' do
       allow(ENV).to receive(:[]).with("EPB_TEAM_SLACK_URL").and_return(nil)
 
-      stub_request(:post, 'https://example.com/webhook')
-                        .to_return(status: 200, headers: {})
+      stub_request(:post, 'https://example.com/webhook').to_return(status: 200, headers: {})
 
-      errors = helper.format_errors(JSON.load_file('spec/fixtures/output_failure.json'))
-
-      expect { helper.post_errors_to_slack(errors) }.to raise_error(StandardError, 'There is no Slack URL set')
+      expect { helper.format_and_send_errors(rspec_failures) }.to raise_error(StandardError, 'There is no Slack URL set')
     end
   end
 end

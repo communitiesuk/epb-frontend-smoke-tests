@@ -1,15 +1,19 @@
 # frozen_string_literal: true
 
 require 'json'
+require 'http'
 
 class JourneyTestStatusCheck
-  def get_failure_count(file_path)
-    raw_json = JSON.load_file(file_path)
-    raw_json['summary']['failure_count']
+  def get_failure_count(rspec_output)
+    rspec_output['summary']['failure_count']
   end
 
-  def format_errors(results)
-    errors = results['examples'].select { |r| r['status'] == 'failed' }
+  def format_and_send_errors(rspec_output)
+    post_errors_to_slack(format_errors(rspec_output))
+  end
+
+  def format_errors(rspec_output)
+    errors = rspec_output['examples'].select { |r| r['status'] == 'failed' }
 
     errors.map do |example|
       {
@@ -21,9 +25,8 @@ class JourneyTestStatusCheck
   end
 
   def post_errors_to_slack(formatted_errors)
-    error_hash = formatted_errors
-    error_text = 'EPB FRONTEND SMOKE TEST FAILURE: '
-    error_hash.each do |e|
+    error_text = ':fire: EPB FRONTEND SMOKE TEST FAILURE: '
+    formatted_errors.each do |e|
       error_text += "\n
                       Test: #{e[:full_description]} has failed\n
                       with error: #{e[:message]}\n

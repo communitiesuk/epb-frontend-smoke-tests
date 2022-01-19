@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-ruby "~> 3.0.0"
+ruby '~> 3.0.0'
 
 source 'https://rubygems.org' do
   group :test do
@@ -8,9 +8,6 @@ source 'https://rubygems.org' do
     gem 'rspec', '~>3.10'
     gem 'selenium-webdriver', '~> 4.1.0'
     gem 'webmock', '~> 3.14.0'
-  end
-
-  group :worker do
   end
 
   gem 'http'
