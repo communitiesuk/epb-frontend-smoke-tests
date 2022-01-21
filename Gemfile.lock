@@ -1,4 +1,7 @@
 GEM
+  specs:
+
+GEM
   remote: https://rubygems.org/
   specs:
     addressable (2.8.0)
@@ -133,7 +136,7 @@ DEPENDENCIES
   zeitwerk (~> 2.4.1)!
 
 RUBY VERSION
-   ruby 2.7.5p203
+   ruby 3.0.2p107
 
 BUNDLED WITH
    2.2.22
