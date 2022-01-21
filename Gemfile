@@ -13,8 +13,8 @@ source 'https://rubygems.org' do
   end
 
   group :worker do
-    gem "sidekiq", "~> 6.3.1"
-    gem "sidekiq-cron", "~> 1.2.0"
+    gem 'sidekiq', '~> 6.3.1'
+    gem 'sidekiq-cron', '~> 1.2.0'
   end
 
   gem 'http'
