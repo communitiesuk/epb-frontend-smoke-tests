@@ -4,16 +4,24 @@ require 'json'
 require 'http'
 
 class JourneyTestStatusCheck
-  def get_failure_count(rspec_output)
-    rspec_output['summary']['failure_count']
+
+
+  def initialize(rspec_output)
+    @rspec_output = rspec_output
   end
 
-  def format_and_send_errors(rspec_output)
-    post_errors_to_slack(format_errors(rspec_output))
+
+  def failure_count
+    @rspec_output['summary']['failure_count']
   end
 
-  def format_errors(rspec_output)
-    errors = rspec_output['examples'].select { |r| r['status'] == 'failed' }
+  def format_and_send_errors
+    post_errors_to_slack(format_errors)
+  end
+
+
+  def format_errors
+    errors = @rspec_output['examples'].select { |r| r['status'] == 'failed' }
 
     errors.map do |example|
       {

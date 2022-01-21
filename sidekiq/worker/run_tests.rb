@@ -10,11 +10,12 @@ module Worker
 
     def perform
       rake_task('spec').invoke
-      status_check = JourneyTestStatusCheck.new
       rspec_output = JSON.load_file('logs/output.json')
-      status_check.format_and_send_errors(rspec_output) if status_check.get_failure_count(rspec_output) >= 1
+      status_check = JourneyTestStatusCheck.new(rspec_output)
+      status_check.format_and_send_errors if status_check.failure_count >= 1
     end
 
+    private
     def rake_task(name)
       rake = Rake::Application.new
       Rake.application = rake

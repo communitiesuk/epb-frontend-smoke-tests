@@ -3,18 +3,20 @@
 require 'webmock/rspec'
 
 describe JourneyTestStatusCheck do
-  let(:helper) { described_class.new }
   let(:rspec_success) { JSON.load_file('spec/fixtures/output_success.json') }
   let(:rspec_failures) { JSON.load_file('spec/fixtures/output_failure.json') }
 
   context 'when there are no failures' do
     it 'returns the journey test status in a ruby object' do
-      result = helper.get_failure_count(rspec_success)
+      my_subject = described_class.new(rspec_success)
+      result = my_subject.failure_count
       expect(result).to eq(0)
     end
   end
 
   context 'when there are failures' do
+    let(:my_subject) { described_class.new(rspec_failures)}
+
     before do
       WebMock.enable!
       allow(ENV).to receive(:[])
@@ -23,12 +25,12 @@ describe JourneyTestStatusCheck do
     after { WebMock.disable! }
 
     it 'returns the journey test status in a ruby object' do
-      result = helper.get_failure_count(rspec_failures)
+      result = my_subject.failure_count
       expect(result).to eq(11)
     end
 
     it 'returns only the errors' do
-      result = helper.format_errors(rspec_failures)
+      result = my_subject.format_errors
       expect(result.count).to eq(11)
     end
 
@@ -40,7 +42,7 @@ describe JourneyTestStatusCheck do
           rspec_file_path: './spec/journey/find_domestic_assesor_by_name_spec.rb[1:1:1]'
         }
 
-      result = helper.format_errors(rspec_failures)
+      result = my_subject.format_errors
       expect(result.first).to eq(errors)
     end
 
@@ -50,7 +52,7 @@ describe JourneyTestStatusCheck do
       slack_request = WebMock.stub_request(:post, 'https://example.com/webhook')
                              .to_return(status: 200, headers: {})
 
-      helper.format_and_send_errors(rspec_failures)
+      my_subject.format_and_send_errors
 
       expect(slack_request).to have_been_made
     end
@@ -61,7 +63,7 @@ describe JourneyTestStatusCheck do
       stub_request(:post, 'https://example.com/webhook').to_return(status: 200, headers: {})
 
       expect do
-        helper.format_and_send_errors(rspec_failures)
+        my_subject.format_and_send_errors
       end.to raise_error(StandardError, 'There is no Slack URL set')
     end
   end
