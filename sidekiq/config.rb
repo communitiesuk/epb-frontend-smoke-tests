@@ -14,7 +14,6 @@ end
 
 SidekiqLoader.setup
 
-
 environment = ENV['STAGE'] || 'development'
 
 unless %w[development test].include? environment

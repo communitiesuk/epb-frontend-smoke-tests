@@ -23,7 +23,6 @@ describe 'Find a Domestic Assessor English', journey: true do
   end
 end
 
-
 describe 'Find a Domestic Assessor Welsh', journey: true do
   before do
     visit get_service_welsh

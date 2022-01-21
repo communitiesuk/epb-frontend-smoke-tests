@@ -3,7 +3,6 @@
 ruby '~> 3.0.2'
 
 source 'https://rubygems.org' do
-
   group :test do
     gem 'capybara', '~> 3.36.0'
     gem 'rspec', '~>3.10'
@@ -15,7 +14,6 @@ source 'https://rubygems.org' do
     gem 'sidekiq', '~> 6.3.1'
     gem 'sidekiq-cron', '~> 1.2.0'
   end
-
 
   gem 'http'
   gem 'json'
