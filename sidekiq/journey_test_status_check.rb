@@ -5,8 +5,8 @@ require 'http'
 
 class JourneyTestStatusCheck
 
-
-  def initialize(rspec_output)
+  def initialize(rspec_output:, slack_gateway:)
+    @slack_gateway = slack_gateway
     @rspec_output = rspec_output
   end
 
@@ -40,15 +40,7 @@ class JourneyTestStatusCheck
                       with error: #{e[:message]}\n
                       on line: #{e[:rspec_file_path]}\n"
     end
-
-    webhook_url = ENV['EPB_TEAM_SLACK_URL']
-    if webhook_url.nil?
-      raise StandardError, 'There is no Slack URL set'
-    else
-      payload = { username: 'Energy Performance of Buildings', channel: 'team-epb', text: error_text,
-                  mrkdwn: true }
-
-      HTTP.post(webhook_url, body: payload.to_json)
-    end
+    pp @slack_gateway
+    @slack_gateway.post(error_text)
   end
 end

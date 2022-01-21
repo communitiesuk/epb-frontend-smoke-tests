@@ -5,6 +5,7 @@ require 'http'
 require 'selenium/webdriver'
 require 'shared_context'
 require 'zeitwerk'
+require 'webmock/rspec'
 
 ENV['test_success'] = 'false'
 

@@ -1,21 +1,22 @@
 # frozen_string_literal: true
 
-require 'webmock/rspec'
+
 
 describe JourneyTestStatusCheck do
   let(:rspec_success) { JSON.load_file('spec/fixtures/output_success.json') }
   let(:rspec_failures) { JSON.load_file('spec/fixtures/output_failure.json') }
+  let(:slack_agent) { SlackGateway.new }
 
   context 'when there are no failures' do
     it 'returns the journey test status in a ruby object' do
-      my_subject = described_class.new(rspec_success)
+      my_subject = described_class.new(rspec_output: rspec_success, slack_gateway: slack_agent)
       result = my_subject.failure_count
       expect(result).to eq(0)
     end
   end
 
   context 'when there are failures' do
-    let(:my_subject) { described_class.new(rspec_failures)}
+    let(:my_subject) { described_class.new(rspec_output: rspec_failures, slack_gateway: slack_agent)}
 
     before do
       WebMock.enable!
@@ -44,6 +45,18 @@ describe JourneyTestStatusCheck do
 
       result = my_subject.format_errors
       expect(result.first).to eq(errors)
+    end
+
+    it 'send the error test to the slack agent' do
+      allow(slack_agent).to receive(:post)
+      allow(ENV).to receive(:[]).with('EPB_TEAM_SLACK_URL').and_return('https://example.com/webhook')
+
+
+      slack_request = WebMock.stub_request(:post, 'https://example.com/webhook')
+                             .to_return(status: 200, headers: {})
+      my_subject.format_and_send_errors
+      expect(slack_agent).to have_received(:post).exactly(1)
+
     end
 
     it 'sends a Slack notification to this webhook if the URL is set' do
