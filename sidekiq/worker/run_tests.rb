@@ -22,5 +22,16 @@ module Worker
       rake.load_rakefile
       rake.tasks.find { |task| task.to_s == name }
     end
+
+      def send_error_to_slack(error)
+        gateway= SlackGateway.new
+          error_text = ':fire: EPB FRONTEND SMOKE TESTS WORKER HAS FAILED: '
+           error_text += "\n
+                      Error: #{error.message}\n"
+
+
+        gateway.post(error_text)
+      end
+
   end
 end

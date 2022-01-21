@@ -4,7 +4,6 @@ require 'json'
 require 'http'
 
 class JourneyTestStatusCheck
-
   def initialize(rspec_output:, slack_gateway:)
     @slack_gateway = slack_gateway
     @rspec_output = rspec_output
@@ -40,7 +39,7 @@ class JourneyTestStatusCheck
                       with error: #{e[:message]}\n
                       on line: #{e[:rspec_file_path]}\n"
     end
-    pp @slack_gateway
+
     @slack_gateway.post(error_text)
   end
 end

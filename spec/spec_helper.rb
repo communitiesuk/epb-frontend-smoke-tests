@@ -6,6 +6,9 @@ require 'selenium/webdriver'
 require 'shared_context'
 require 'zeitwerk'
 require 'webmock/rspec'
+require 'sidekiq/testing'
+require 'sidekiq/testing/inline'
+
 
 ENV['test_success'] = 'false'
 
@@ -37,3 +40,4 @@ Capybara.configure do |config|
   config.run_server = false
   config.default_driver = :selenium_chrome_headless
 end
+
