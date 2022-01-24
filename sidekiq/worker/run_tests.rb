@@ -9,13 +9,18 @@ module Worker
     sidekiq_options retry: false
 
     def perform
-      rake_task('spec').invoke
-      rspec_output = JSON.load_file('logs/output.json')
-      status_check = JourneyTestStatusCheck.new(rspec_output:rspec_output, slack_gateway: SlackGateway.new )
-      status_check.format_and_send_errors if status_check.failure_count >= 1
+      begin
+        rake_task('spec').invoke
+        rspec_output = JSON.load_file('logs/output.json')
+        status_check = JourneyTestStatusCheck.new(rspec_output: rspec_output, slack_gateway: SlackGateway.new)
+        status_check.format_and_send_errors if status_check.failure_count >= 1
+      rescue StandardError => error
+        send_error_to_slack error
+      end
     end
 
     private
+
     def rake_task(name)
       rake = Rake::Application.new
       Rake.application = rake
@@ -23,15 +28,13 @@ module Worker
       rake.tasks.find { |task| task.to_s == name }
     end
 
-      def send_error_to_slack(error)
-        gateway= SlackGateway.new
-          error_text = ':fire: EPB FRONTEND SMOKE TESTS WORKER HAS FAILED: '
-           error_text += "\n
+    def send_error_to_slack(error)
+      gateway = SlackGateway.new
+      error_text = ':fire: EPB FRONTEND SMOKE TESTS WORKER HAS FAILED: '
+      error_text += "\n
                       Error: #{error.message}\n"
 
-
-        gateway.post(error_text)
-      end
-
+      gateway.post(error_text)
+    end
   end
 end
