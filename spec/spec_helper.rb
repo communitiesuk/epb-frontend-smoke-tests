@@ -33,6 +33,8 @@ RSpec.configure do |config|
   config.shared_context_metadata_behavior = :apply_to_host_groups
   config.include Capybara::DSL
   config.include_context 'domains'
+
+  config.before {WebMock.disable!}
 end
 
 Capybara.configure do |config|
