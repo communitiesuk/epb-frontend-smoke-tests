@@ -18,11 +18,11 @@ RSpec.shared_context 'domains' do
   end
 
   let(:get_service) do
-    is_production? ? 'https://www.gov.uk/get-new-energy-certificate?smoke-test=true' : 'https://mhclg-epb-static-start-pages-integration.london.cloudapps.digital/getting-a-new-energy-certificate.html'
+    is_production? ? 'https://www.gov.uk/get-new-energy-certificate' : 'https://mhclg-epb-static-start-pages-integration.london.cloudapps.digital/getting-a-new-energy-certificate.html'
   end
 
   let(:find_service) do
-    is_production? ? 'https://www.gov.uk/find-energy-certificate?smoke-test=true' : 'https://mhclg-epb-static-start-pages-integration.london.cloudapps.digital/find-an-energy-certificate.html'
+    is_production? ? 'https://www.gov.uk/find-energy-certificate' : 'https://mhclg-epb-static-start-pages-integration.london.cloudapps.digital/find-an-energy-certificate.html'
   end
 
   let(:get_service_welsh) do
