@@ -47,6 +47,6 @@ deploy-worker:
 	cf set-env "${DEPLOY_WORKER}" STAGE "${PAAS_SPACE}"
 	cf set-env "${DEPLOY_WORKER}" EPB_TEAM_SLACK_URL "${EPB_TEAM_SLACK_URL}"
 
-	cf push "${DEPLOY_WORKER}" -f worker_manifes
+	cf push "${DEPLOY_WORKER}" -f worker_manifest.yml
 
 	cf bind-service ${DEPLOY_WORKER} dluhc-epb-redis-frontend-smoke-tests
