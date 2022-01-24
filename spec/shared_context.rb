@@ -2,6 +2,7 @@
 
 RSpec.shared_context 'domains' do
   before(:all) do
+    # WebMock.disable!
   end
 
   after(:all) do
