@@ -9,7 +9,7 @@ module Worker
     sidekiq_options retry: false
 
     def perform
-      rake_task('spec').invoke
+      system('rspec spec/journey/*_spec.rb --format json --out logs/output.json --format documentation')
       rspec_output = JSON.load_file('logs/output.json')
       status_check = JourneyTestStatusCheck.new(rspec_output: rspec_output, slack_gateway: SlackGateway.new)
       status_check.format_and_send_errors if status_check.failure_count >= 1
