@@ -10,7 +10,7 @@ module Worker
 
     def perform
       begin
-        rake_task('spec').invoke
+        system('rspec --format json --out logs/output.json --format documentation --fail_on_error 1')
         rspec_output = JSON.load_file('logs/output.json')
         status_check = JourneyTestStatusCheck.new(rspec_output: rspec_output, slack_gateway: SlackGateway.new)
         status_check.format_and_send_errors if status_check.failure_count >= 1
