@@ -9,7 +9,6 @@ class JourneyTestStatusCheck
     @rspec_output = rspec_output
   end
 
-
   def failure_count
     @rspec_output['summary']['failure_count']
   end
@@ -17,7 +16,6 @@ class JourneyTestStatusCheck
   def format_and_send_errors
     post_errors_to_slack(format_errors)
   end
-
 
   def format_errors
     errors = @rspec_output['examples'].select { |r| r['status'] == 'failed' }

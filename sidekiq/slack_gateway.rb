@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class SlackGateway
-
   def post(error_text)
     webhook_url = ENV['EPB_TEAM_SLACK_URL']
     if webhook_url.nil?

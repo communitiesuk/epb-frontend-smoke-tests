@@ -9,7 +9,6 @@ require 'webmock/rspec'
 require 'sidekiq/testing'
 require 'sidekiq/testing/inline'
 
-
 ENV['test_success'] = 'false'
 
 class TestLoader
@@ -40,4 +39,3 @@ Capybara.configure do |config|
   config.run_server = false
   config.default_driver = :selenium_chrome_headless
 end
-

@@ -6,9 +6,9 @@ source 'https://rubygems.org' do
   group :test do
     gem 'capybara', '~> 3.36.0'
     gem 'rspec', '~>3.10'
+    gem 'rspec-sidekiq'
     gem 'selenium-webdriver', '~> 4.1.0'
     gem 'webmock', '~> 3.14.0'
-    gem 'rspec-sidekiq'
   end
 
   group :worker do

@@ -9,14 +9,12 @@ module Worker
     sidekiq_options retry: false
 
     def perform
-      begin
-        system('rspec --format json --out logs/output.json --format documentation')
-        rspec_output = JSON.load_file('logs/output.json')
-        status_check = JourneyTestStatusCheck.new(rspec_output: rspec_output, slack_gateway: SlackGateway.new)
-        status_check.format_and_send_errors if status_check.failure_count >= 1
-      rescue StandardError => error
-        send_error_to_slack error
-      end
+      system('rspec --format json --out logs/output.json --format documentation')
+      rspec_output = JSON.load_file('logs/output.json')
+      status_check = JourneyTestStatusCheck.new(rspec_output: rspec_output, slack_gateway: SlackGateway.new)
+      status_check.format_and_send_errors if status_check.failure_count >= 1
+    rescue StandardError => e
+      send_error_to_slack e
     end
 
     private
