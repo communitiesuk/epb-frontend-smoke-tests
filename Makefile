@@ -43,6 +43,7 @@ deploy-worker:
 	cf apply-manifest -f worker_manifest.yml
 
 	cf set-env "${DEPLOY_WORKER}" BUNDLE_WITHOUT "test"
+	cf set-env "${DEPLOY_WORKER}" API_STAGE "production"
 	cf set-env "${DEPLOY_WORKER}" STAGE "${PAAS_SPACE}"
 	cf set-env "${DEPLOY_WORKER}" EPB_TEAM_SLACK_URL "${EPB_TEAM_SLACK_URL}"
 
