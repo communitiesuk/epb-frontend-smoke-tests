@@ -23,6 +23,7 @@ phases:
       ruby: 3.0
     commands:
       - bundle install
+      - chromedriver
   pre_build:
     commands:
       - echo ">>>>>>>> DEPLOY TO MONITORING ENV"
