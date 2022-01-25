@@ -21,7 +21,7 @@ phases:
     runtime-versions:
       ruby: 3.0
     commands:
-      - apt install chromium-chromedriver
+      - install chromium-chromedriver
   pre_build:
     commands:
       - echo ">>>>>>>> DEPLOY TO MONITORING ENV"
