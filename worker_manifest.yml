@@ -9,4 +9,3 @@ applications:
       - ruby_buildpack
     services:
       - dluhc-epb-redis-frontend-smoke-tests
-      - chromeDriver
