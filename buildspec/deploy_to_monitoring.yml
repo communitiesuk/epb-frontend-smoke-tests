@@ -22,8 +22,7 @@ phases:
     runtime-versions:
       ruby: 3.0
     commands:
-      - pip install -U -r requirements.txt
-      - sh install_driver.sh
+      - bundle install
   pre_build:
     commands:
       - echo ">>>>>>>> DEPLOY TO MONITORING ENV"
