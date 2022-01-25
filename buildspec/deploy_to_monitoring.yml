@@ -16,12 +16,14 @@ env:
     PAAS_ORG: "epbr-govpaas-orgname"
     EPB_TEAM_SLACK_URL: "epb-team-slack-url"
 
+
 phases:
   install:
     runtime-versions:
       ruby: 3.0
     commands:
-      - install chromium-chromedriver
+      - pip install -U -r requirements.txt
+      - sh install_driver.sh
   pre_build:
     commands:
       - echo ">>>>>>>> DEPLOY TO MONITORING ENV"
