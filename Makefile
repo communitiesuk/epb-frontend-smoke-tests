@@ -46,6 +46,7 @@ deploy-worker:
 	cf set-env "${DEPLOY_WORKER}" API_STAGE "production"
 	cf set-env "${DEPLOY_WORKER}" STAGE "${PAAS_SPACE}"
 	cf set-env "${DEPLOY_WORKER}" EPB_TEAM_SLACK_URL "${EPB_TEAM_SLACK_URL}"
+	cf set-env "${DEPLOY_WORKER}" POST_TO_SLACK "false"
 
 	cf push "${DEPLOY_WORKER}" -f worker_manifest.yml
 

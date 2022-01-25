@@ -75,5 +75,18 @@ describe JourneyTestStatusCheck do
         my_subject.format_and_send_errors
       end.to raise_error(StandardError, 'There is no Slack URL set')
     end
+
+    context 'when ENV post over ride is set ' do
+
+
+      it 'does not post to slack' do
+        allow(ENV).to receive(:[]).with('POST_TO_SLACK').and_return('false')
+        slack_request = WebMock.stub_request(:post, 'https://example.com/webhook')
+                               .to_return(status: 200, headers: {})
+
+        my_subject.format_and_send_errors
+        expect(slack_request).not_to have_been_made
+      end
+    end
   end
 end

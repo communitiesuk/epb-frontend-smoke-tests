@@ -38,6 +38,6 @@ class JourneyTestStatusCheck
                       on line: #{e[:rspec_file_path]}\n"
     end
 
-    @slack_gateway.post(error_text)
+    @slack_gateway.post(error_text) if ENV['POST_TO_SLACK'].nil? || ENV['POST_TO_SLACK'] == "true"
   end
 end
