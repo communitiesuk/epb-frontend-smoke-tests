@@ -1,4 +1,3 @@
 ---
 packages:
-  - chrome
-  - chromium-driver
+  - ruby-selenium-webdriver
