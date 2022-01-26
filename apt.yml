@@ -1,4 +1,4 @@
 ---
 packages:
-  - chromium-browser
+  - google-chrome-stable
   - chromium-driver
