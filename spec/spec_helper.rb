@@ -8,7 +8,6 @@ require 'zeitwerk'
 require 'webmock/rspec'
 require 'sidekiq/testing'
 
-
 ENV['test_success'] = 'false'
 
 class TestLoader
@@ -34,7 +33,7 @@ RSpec.configure do |config|
   config.include Capybara::DSL
   config.include_context 'domains'
 
-  config.before {WebMock.disable!}
+  config.before { WebMock.disable! }
 end
 
 Capybara.configure do |config|

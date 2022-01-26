@@ -6,7 +6,7 @@ class SlackGateway
     if webhook_url.nil?
       raise StandardError, 'There is no Slack URL set'
     else
-      payload = { username: 'Energy Performance of Buildings', channel: 'team-epb', text: error_text,
+      payload = { username: 'Energy Performance of Buildings', channel: 'bot-testing', text: error_text,
                   mrkdwn: true }
 
       HTTP.post(webhook_url, body: payload.to_json)

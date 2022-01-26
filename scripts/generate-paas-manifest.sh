@@ -11,5 +11,6 @@ applications:
     memory: 1G
     buildpacks:
       - ruby_buildpack
+      - nodejs_buildpack
 
 EOF

@@ -9,14 +9,15 @@ module Worker
     sidekiq_options retry: false
 
     def perform
-      system('rspec spec/journey/*_spec.rb --format json --out logs/output.json --format documentation')
-      rspec_output = JSON.load_file('logs/output.json')
-      status_check = JourneyTestStatusCheck.new(rspec_output: rspec_output, slack_gateway: SlackGateway.new)
-      if status_check.failure_count >= 1
-        status_check.format_and_send_errors
-      else
-        pp 'Smoke test passed'
+      FileUtils.rm_rf log_files
+      passed = system('npm run test-with-delay')
+      if passed
+        pp 'Smoke test suite passed'
+        return
       end
+      cypress_errors = log_files.map { |file| JSON.load_file file }
+      status_check = JourneyTestFailureProcessor.new(cypress_errors: cypress_errors, slack_gateway: SlackGateway.new)
+      status_check.format_and_send_errors
     rescue StandardError => e
       send_error_to_slack e
     end
@@ -37,6 +38,10 @@ module Worker
                       Error: #{error.message}\n"
 
       gateway.post(error_text)
+    end
+
+    def log_files
+      Dir.glob("#{__dir__}/../../cypress/logs/*.json")
     end
   end
 end
