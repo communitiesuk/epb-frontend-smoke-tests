@@ -5,7 +5,7 @@ applications:
     command: bundle exec sidekiq -r ./sidekiq/config.rb
     no-route: true
     buildpacks:
-      - https://github.com/cloudfoundry/apt-buildpack.git#v0.2.10
+      - nodejs_buildpack
       - ruby_buildpack
     services:
       - dluhc-epb-redis-frontend-smoke-tests
