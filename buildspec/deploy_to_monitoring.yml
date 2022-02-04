@@ -2,6 +2,7 @@ version: 0.2
 
 runtime-versions:
   ruby: 3.0
+  nodejs: 16
 
 env:
   variables:
@@ -21,8 +22,10 @@ phases:
   install:
     runtime-versions:
       ruby: 3.0
+      nodejs: 16
     commands:
       - bundle install
+      - npm install
   pre_build:
     commands:
       - echo ">>>>>>>> DEPLOY TO MONITORING ENV"
