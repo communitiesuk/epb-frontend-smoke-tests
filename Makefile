@@ -47,6 +47,7 @@ deploy-worker:
 	cf set-env "${DEPLOY_WORKER}" STAGE "${PAAS_SPACE}"
 	cf set-env "${DEPLOY_WORKER}" EPB_TEAM_SLACK_URL "${EPB_TEAM_SLACK_URL}"
 	cf set-env "${DEPLOY_WORKER}" POST_TO_SLACK "false"
+	cf set-env "${DEPLOY_WORKER}" CYPRESS_CACHE_FOLDER "~/deps/0/bin/cypress"
 
 	cf push "${DEPLOY_WORKER}" -f worker_manifest.yml
 
