@@ -5,7 +5,7 @@ name: Frontend smoke tests
 # Controls when the workflow will run
 on:
   schedule:
-    - cron: '*/5 8-17 * * 1-5'
+    - cron: '*/20 8-17 * * 1-5'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -26,6 +26,9 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run smoke tests using Cypress
         uses: cypress-io/github-action@v2
+        env:
+          API_STAGE: 'production'
         with:
           browser: chrome
           headless: true
+        timeout-minutes: 8
