@@ -32,7 +32,6 @@ jobs:
         with:
           browser: chrome
           headless: true
-          command: 'npm run test-with-delay'
         timeout-minutes: 8
 
       - name: 'Upload screenshots and videos to Slack'
