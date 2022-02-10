@@ -35,6 +35,13 @@ jobs:
         timeout-minutes: 8
         continue-on-error: true
 
+      - name: 'Post Cypress failures to Slack'
+        uses: communitiesuk/post-cypress-failures-to-slack@main
+        with:
+          token: ${{ secrets.SLACK_TOKEN }}
+          channels: 'bot-testing'
+          message-text: 'Frontend smoke tests failed - videos in :thread:'
+
       # - name: 'Upload screenshots and videos to Slack'
       #   uses: trymbill/cypress-slack-video-upload-action@v1.3.0
       #   with:
