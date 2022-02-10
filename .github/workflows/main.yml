@@ -32,6 +32,7 @@ jobs:
         with:
           browser: chrome
           headless: true
+          command: API_STAGE=production npm run test-with-delay
         timeout-minutes: 8
 
       - name: 'Upload screenshots and videos to Slack'
