@@ -33,6 +33,7 @@ jobs:
           browser: chrome
           headless: true
         timeout-minutes: 8
+        continue-on-error: true
 
       - name: Setup upterm session
         uses: lhotari/action-upterm@v1
