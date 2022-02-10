@@ -34,9 +34,12 @@ jobs:
           headless: true
         timeout-minutes: 8
 
-      - name: 'Upload screenshots and videos to Slack'
-        uses: trymbill/cypress-slack-video-upload-action@v1.3.0
-        with:
-          token: ${{ secrets.SLACK_TOKEN }}
-          channels: 'bot-testing'
-          message-text: 'Frontend smoke tests failed - videos in :thread:'
+      - name: Setup upterm session
+        uses: lhotari/action-upterm@v1
+
+      # - name: 'Upload screenshots and videos to Slack'
+      #   uses: trymbill/cypress-slack-video-upload-action@v1.3.0
+      #   with:
+      #     token: ${{ secrets.SLACK_TOKEN }}
+      #     channels: 'bot-testing'
+      #     message-text: 'Frontend smoke tests failed - videos in :thread:'
