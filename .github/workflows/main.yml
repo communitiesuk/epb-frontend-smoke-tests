@@ -28,15 +28,12 @@ jobs:
         run: env
 
       - name: Run smoke tests using Cypress
-        uses: cypress-io/github-action@v2
+        uses: cypress-io/github-action@v3
         with:
           browser: chrome
           headless: true
         timeout-minutes: 8
         continue-on-error: true
-
-      - name: Setup upterm session
-        uses: lhotari/action-upterm@v1
 
       # - name: 'Upload screenshots and videos to Slack'
       #   uses: trymbill/cypress-slack-video-upload-action@v1.3.0
