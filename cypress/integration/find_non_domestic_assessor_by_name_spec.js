@@ -1,6 +1,6 @@
 describe('Find a non-domestic assessor (English)', () => {
   beforeEach(() => {
-    cy.visit(Cypress.env(`get_service_en_${process.env.API_STAGE || 'integration'}`))
+    cy.visit(Cypress.env(`get_service_en_${process.env.API_STAGE || 'production'}`))
     cy.contains('Start now').click()
     cy.get('#label-non-domestic').click()
     cy.contains('Continue').click()
@@ -21,7 +21,7 @@ describe('Find a non-domestic assessor (English)', () => {
 
 describe('Find a non-domestic assessor (Welsh)', () => {
   beforeEach(() => {
-    cy.visit(Cypress.env(`get_service_cy_${process.env.API_STAGE || 'integration'}`))
+    cy.visit(Cypress.env(`get_service_cy_${process.env.API_STAGE || 'production'}`))
     cy.contains('Dechrau nawr').click()
     cy.get('#label-non-domestic').click()
     cy.contains('Parhau').click()

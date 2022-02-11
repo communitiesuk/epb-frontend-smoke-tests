@@ -1,6 +1,6 @@
 describe('Find a Domestic Assessor (English)', () => {
   it('shows assessor search results', () => {
-    cy.visit(Cypress.env(`get_service_en_${process.env.API_STAGE || 'integration'}`))
+    cy.visit(Cypress.env(`get_service_en_${process.env.API_STAGE || 'production'}`))
     cy.contains('Start now').click()
     cy.get('#label-domestic').click()
     cy.contains('Continue').click()
@@ -15,7 +15,7 @@ describe('Find a Domestic Assessor (English)', () => {
 
 describe('Find a Domestic Assessor (Welsh)', () => {
   it('shows assessor search results', () => {
-    cy.visit(Cypress.env(`get_service_cy_${process.env.API_STAGE || 'integration'}`))
+    cy.visit(Cypress.env(`get_service_cy_${process.env.API_STAGE || 'production'}`))
     cy.contains('Dechrau nawr').click()
     cy.get('#label-domestic').click()
     cy.contains('Parhau').click()
