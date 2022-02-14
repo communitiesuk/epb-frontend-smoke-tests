@@ -36,7 +36,7 @@ jobs:
         continue-on-error: true
 
       - name: 'Post Cypress failures to Slack'
-        uses: communitiesuk/post-cypress-failures-to-slack@main
+        uses: communitiesuk/epb-post-cypress-failures-to-slack@main
         with:
           token: ${{ secrets.SLACK_TOKEN }}
           channels: 'bot-testing'
