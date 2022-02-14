@@ -40,7 +40,7 @@ jobs:
         with:
           token: ${{ secrets.SLACK_TOKEN }}
           channels: 'bot-testing'
-          message-text: 'Frontend smoke tests failed - videos in :thread:'
+          message-text: '🔥 EPB Frontend smoke test failure'
 
       # - name: 'Upload screenshots and videos to Slack'
       #   uses: trymbill/cypress-slack-video-upload-action@v1.3.0
