@@ -1,7 +1,7 @@
 describe('Find EPC by postcode', () => {
   context('with a postcode for which certificates exist', () => {
     beforeEach(() => {
-      cy.visit(Cypress.env(`find_service_en_${process.env.API_STAGE || 'production'}`))
+      cy.visit(Cypress.env(`find_service_en_${Cypress.env('API_STAGE') || 'production'}`))
       cy.contains('Start now').click()
       cy.get('#label-domestic').click()
       cy.contains('Continue').click()
@@ -28,7 +28,7 @@ describe('Find EPC by postcode', () => {
 describe('Find EPC by postcode in Welsh', () => {
   context('with a postcode for which certificates exist', () => {
     beforeEach(() => {
-      cy.visit(Cypress.env(`find_service_cy_${process.env.API_STAGE || 'production'}`))
+      cy.visit(Cypress.env(`find_service_cy_${Cypress.env('API_STAGE') || 'production'}`))
       cy.contains('Dechreuwch nawr failure').click()
       cy.get('#label-domestic').click()
       cy.contains('Parhau').click()

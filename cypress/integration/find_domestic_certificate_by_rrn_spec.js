@@ -1,7 +1,7 @@
 describe('Find domestic certificate by RRN in English', () => {
   context('when searching for a domestic certificate', () => {
     beforeEach(() => {
-      cy.visit(Cypress.env(`find_service_en_${process.env.API_STAGE || 'production'}`))
+      cy.visit(Cypress.env(`find_service_en_${Cypress.env('API_STAGE') || 'production'}`))
       cy.contains('Start now').click()
       cy.get('#label-domestic').click()
       cy.contains('button', 'Continue').click()
@@ -19,7 +19,7 @@ describe('Find domestic certificate by RRN in English', () => {
 describe('Find domestic certificate by RRN in Welsh', () => {
   context('when search for a domestic certificate in Welsh', () => {
     beforeEach(() => {
-      cy.visit(Cypress.env(`find_service_cy_${process.env.API_STAGE || 'production'}`))
+      cy.visit(Cypress.env(`find_service_cy_${Cypress.env('API_STAGE') || 'production'}`))
       cy.contains('Dechreuwch nawr').click()
       cy.get('#label-domestic').click()
       cy.contains('Parhau').click()

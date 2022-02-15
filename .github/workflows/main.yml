@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      API_STAGE: 'production'
+      CYPRESS_API_STAGE: 'production'
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
