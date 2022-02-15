@@ -33,10 +33,10 @@ jobs:
           browser: chrome
           headless: true
         timeout-minutes: 8
-        continue-on-error: true
 
       - name: 'Post Cypress failures to Slack'
         uses: communitiesuk/epb-post-cypress-failures-to-slack@main
+        if: failure()
         with:
           token: ${{ secrets.SLACK_TOKEN }}
           channels: 'bot-testing'
