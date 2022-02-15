@@ -39,5 +39,5 @@ jobs:
         if: failure()
         with:
           token: ${{ secrets.SLACK_TOKEN }}
-          channels: 'bot-testing'
+          channels: 'team-epb'
           message-text: '🔥 EPB Frontend smoke test failure'
