@@ -17,7 +17,7 @@ describe('Find non-domestic certificate by RRN (English)', () => {
 describe('Find non-domestic certificate by postcode (Welsh)', () => {
   beforeEach(() => {
     cy.visit(Cypress.env(`find_service_cy_${Cypress.env('API_STAGE') || 'production'}`))
-    cy.contains('Dechreuwch nawr').click()
+    cy.contains('Dechrau nawr').click()
     cy.get('#label-non-domestic').click()
     cy.contains('Parhau').click()
     cy.contains('chwilio am dystysgrif drwy ddefnyddio’i rhif tystysgrif').click()

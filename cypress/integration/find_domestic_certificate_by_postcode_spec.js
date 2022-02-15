@@ -29,7 +29,7 @@ describe('Find EPC by postcode in Welsh', () => {
   context('with a postcode for which certificates exist', () => {
     beforeEach(() => {
       cy.visit(Cypress.env(`find_service_cy_${Cypress.env('API_STAGE') || 'production'}`))
-      cy.contains('Dechreuwch nawr failure').click()
+      cy.contains('Dechrau nawr failure').click()
       cy.get('#label-domestic').click()
       cy.contains('Parhau').click()
       cy.get('input[name=postcode]').type('HP17 0UZ')
