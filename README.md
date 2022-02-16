@@ -1,23 +1,14 @@
 EPB Frontend Smoke Tests
 ===================
 
-This is a collection of rspec with Capybara tests, using Chrome to access the live application.
+This is a collection of [Cypress](https://www.cypress.io) tests, with a GitHub Action workflow to run them on a schedule and notify the EPBR team on any failure (via Slack and a [custom action](https://github.com/communitiesuk/epb-post-cypress-failures-to-slack)).
 
-## Getting Started
+## Running the tests
 
-Make sure you have the following installed:
+Run `npm ci` to install dependencies locally.
 
-* [Ruby](https://www.ruby-lang.org) Version 3.0.3
-    * [Bundler](https://bundler.io) to install dependencies found in `Gemfile`
-* [Git](https://git-scm.com) (_optional_)
+Run `npm run test` to run the whole test suite against production (using headless [Electron](https://www.electronjs.org)). (NB. These may execute fast enough to trigger the DDoS protection on the live app and lead to test failures because of this. To run the tests slowly enough not to trigger this condition, use `npm run test-with-delay`.)
 
-Run Test
-Journey tests are run using Capybara on the Production front end instance.
-To run the test suite use the cmd:
+While working on the tests, it's advised to use the Cypress dashboard app on your machine, which can be run using `npx cypress open`.
 
-`make test`
-
-to run the test suite against integration set the ENV variable 'API_STAGE' to be anything other than production and re run make test e.g.
-
-      API_STAGE=integration
-      make test
+Consult the [Cypress docs](https://docs.cypress.io/) for Cypress testing syntax and examples.
