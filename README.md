@@ -12,3 +12,7 @@ Run `npm run test` to run the whole test suite against production (using headles
 While working on the tests, it's advised to use the Cypress dashboard app on your machine, which can be run using `npx cypress open`.
 
 Consult the [Cypress docs](https://docs.cypress.io/) for Cypress testing syntax and examples.
+
+### Running tests against the Integration environment
+
+Run `CYPRESS_API_STAGE=integration npm run test-with-delay`.
