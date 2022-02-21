@@ -20,6 +20,8 @@ jobs:
 
     env:
       CYPRESS_API_STAGE: 'production'
+      # delay each command by 250ms in order to avoid triggering DDoS protection
+      CYPRESS_COMMAND_DELAY: 250
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
