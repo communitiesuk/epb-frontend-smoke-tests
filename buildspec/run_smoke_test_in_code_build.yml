@@ -18,9 +18,8 @@ phases:
       - npm ci
   pre_build:
     commands:
-      - npm run cy:verify
-      - npm run cy:info
+      - npx cypress verify
+      - npx cypress info
   build:
     commands:
-      - npm run start:ci &
-      - npm run test-with-delay
+      - npx cypress run test-with-delay
