@@ -30,7 +30,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Run smoke tests using Cypress
-        uses: cypress-io/github-action@v3
+        uses: cypress-io/github-action@v4
         with:
           browser: chrome
           headless: true
