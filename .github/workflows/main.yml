@@ -29,9 +29,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: List out environment variables
-        run: env
-
       - name: Run smoke tests using Cypress
         uses: cypress-io/github-action@v3
         with:
