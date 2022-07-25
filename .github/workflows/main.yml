@@ -43,3 +43,6 @@ jobs:
           token: ${{ secrets.SLACK_TOKEN }}
           channel: 'team-epb'
           message-text: '🔥 EPB Frontend smoke test failure'
+
+      - name: 'Write a dummy context to keep smoke tests alive if needed'
+        uses: gautamkrishnar/keepalive-workflow@v1
