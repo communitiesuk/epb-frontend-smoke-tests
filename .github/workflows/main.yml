@@ -33,7 +33,6 @@ jobs:
         uses: cypress-io/github-action@v4
         with:
           browser: chrome
-          headless: true
         timeout-minutes: 8
 
       - name: 'Post Cypress failures to Slack'
