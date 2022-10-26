@@ -40,7 +40,10 @@ describe('Find EPC by postcode in Welsh', () => {
     })
 
     it('shows existence of those certificates on the search results page', () => {
-      cy.get('body').should('contain', 'EPCs ar gyfer HP17 0UZ')
+      cy.get('body').should(body => {
+        const bodyInner = body.text()
+        expect(bodyInner).to.match(/EPCs? ar gyfer HP17 0UZ/)
+      })
     })
 
     context('when selecting a known certificate from the results list', () => {
