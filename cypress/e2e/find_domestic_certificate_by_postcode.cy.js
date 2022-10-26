@@ -10,7 +10,10 @@ describe('Find EPC by postcode', () => {
     })
 
     it('shows existence of those certificates on the search results page', () => {
-      cy.get('body').should('contain', 'EPCs for HP17 0UZ')
+      cy.get('body').should(body => {
+        const bodyInner = body.text()
+        expect(bodyInner).to.match(/EPCs? for HP17 0UZ/)
+      })
     })
 
     context('when selecting a known certificate from the results list', () => {
