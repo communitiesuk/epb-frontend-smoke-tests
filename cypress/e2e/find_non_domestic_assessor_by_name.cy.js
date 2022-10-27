@@ -38,7 +38,10 @@ describe('Find a non-domestic assessor (Welsh)', () => {
     })
 
     it('shows assessor search results', () => {
-      cy.get('body').should('contain', 'canlyniad ar gyfer yr enw Andrew Parkin')
+      cy.get('body').should(body => {
+        const bodyInner = body.text()
+        expect(bodyInner).to.match(/canlyniad(au)? ar gyfer yr enw Andrew Parkin/)
+      })
     })
   })
 })
