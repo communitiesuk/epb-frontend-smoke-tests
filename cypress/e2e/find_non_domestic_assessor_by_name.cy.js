@@ -14,7 +14,10 @@ describe('Find a non-domestic assessor (English)', () => {
     })
 
     it('shows assessor search results', () => {
-      cy.get('body').should('contain', 'results for the name Andrew Parkin')
+      cy.get('body').should(body => {
+        const bodyInner = body.text()
+        expect(bodyInner).to.match(/results? for the name Andrew Parkin/)
+      })
     })
   })
 })
@@ -35,7 +38,7 @@ describe('Find a non-domestic assessor (Welsh)', () => {
     })
 
     it('shows assessor search results', () => {
-      cy.get('body').should('contain', 'canlyniadau ar gyfer yr enw Andrew Parkin')
+      cy.get('body').should('contain', 'canlyniad ar gyfer yr enw Andrew Parkin')
     })
   })
 })

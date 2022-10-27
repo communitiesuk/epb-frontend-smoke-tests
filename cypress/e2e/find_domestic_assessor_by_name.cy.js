@@ -9,7 +9,10 @@ describe('Find a Domestic Assessor (English)', () => {
     cy.contains('find an assessor by name').click()
     cy.get('input[name=name]').type('Andrew Parkin')
     cy.contains('Search').click()
-    cy.get('body').should('contain', 'results for the name Andrew Parkin')
+    cy.get('body').should(body => {
+      const bodyInner = body.text()
+      expect(bodyInner).to.match(/results? for the name Andrew Parkin/)
+    })
   })
 })
 
@@ -24,6 +27,6 @@ describe('Find a Domestic Assessor (Welsh)', () => {
     cy.contains('chwilio am asesydd yn ôl enw').click()
     cy.get('input[name=name]').type('Andrew Parkin')
     cy.contains('button', 'Chwiliwch').click()
-    cy.get('body').should('contain', 'canlyniadau ar gyfer yr enw Andrew Parkin')
+    cy.get('body').should('contain', 'canlyniad ar gyfer yr enw Andrew Parkin')
   })
 })
