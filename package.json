@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "npx cypress run",
+    "test-no-video": "CYPRESS_VIDEO=false npx cypress run",
     "test-with-delay": "CYPRESS_COMMAND_DELAY=500 npx cypress run",
+    "test-with-delay-no-video": "CYPRESS_COMMAND_DELAY=500 CYPRESS_VIDEO=false npx cypress run",
     "fmt": "npx standard --fix cypress"
   },
   "repository": {
