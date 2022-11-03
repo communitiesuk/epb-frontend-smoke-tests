@@ -22,4 +22,4 @@ phases:
       - npx cypress info
   build:
     commands:
-      - npx cypress run test-with-delay
+      - npm run test-no-video
