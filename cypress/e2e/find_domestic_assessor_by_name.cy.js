@@ -34,7 +34,7 @@ describe('Find a Domestic Assessor (Welsh)', () => {
       cy.contains('button', 'Chwiliwch').click()
       cy.get('body').should(body => {
         const bodyInner = body.text()
-        expect(bodyInner).to.match(/canlyniad(au)? ar gyfer yr nw Andrew Parkin/)
+        expect(bodyInner).to.match(/canlyniad(au)? ar gyfer yr enw Andrew Parkin/)
       })
     })
   })
