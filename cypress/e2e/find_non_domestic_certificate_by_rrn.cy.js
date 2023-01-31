@@ -15,7 +15,7 @@ describe('Find non-domestic certificate by RRN (English)', () => {
 
   it('shows the certificate with the expected header', () => {
     cy.origin(Cypress.env(`find_domain_${stage}`), () => {
-      cy.get('body').should('contain', 'Display eergy certificate (DEC)')
+      cy.get('body').should('contain', 'Display energy certificate (DEC)')
     })
   })
 })
@@ -27,7 +27,7 @@ describe('Find non-domestic certificate by postcode (Welsh)', () => {
     cy.origin(Cypress.env(`find_domain_${stage}`), () => {
       cy.get('#label-non-domestic').click()
       cy.contains('Parhau').click()
-      cy.contains('chwilio am dystysgrif drwy ddenyddio’i rhif tystysgrif').click()
+      cy.contains('chwilio am dystysgrif drwy ddefnyddio’i rhif tystysgrif').click()
       cy.get('input[name=reference_number]').type('0060-8260-7119-7386-8570')
       cy.contains('button', 'Chwiliwch').click()
     })
@@ -35,7 +35,7 @@ describe('Find non-domestic certificate by postcode (Welsh)', () => {
 
   it('shows the certificate with the expected header', () => {
     cy.origin(Cypress.env(`find_domain_${stage}`), () => {
-      cy.get('body').should('contain', 'Tystysgrif nni i’w harddangos (DEC)')
+      cy.get('body').should('contain', 'Tystysgrif ynni i’w harddangos (DEC)')
     })
   })
 })

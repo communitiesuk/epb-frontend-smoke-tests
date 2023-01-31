@@ -33,7 +33,7 @@ describe('Find a non-domestic assessor (Welsh)', () => {
 
   it('shows assessor search results', () => {
     cy.origin(Cypress.env(`get_domain_${stage}`), () => {
-      cy.get('body').should('contain', 'asesyr yn nhrefn eu pellter o SW1A 2AA')
+      cy.get('body').should('contain', 'aseswyr yn nhrefn eu pellter o SW1A 2AA')
     })
   })
 })
