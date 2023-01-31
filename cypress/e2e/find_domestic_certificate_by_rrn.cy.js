@@ -38,7 +38,7 @@ describe('Find domestic certificate by RRN in Welsh', () => {
 
     it('shows the certificate with the expected header', () => {
       cy.origin(Cypress.env(`find_domain_${stage}`), () => {
-        cy.get('body').should('contain', 'Tystysgrif perfformiad ynni (EPC)')
+        cy.get('body').should('contain', 'Tystysgrif performiad ynni (EPC)')
       })
     })
   })
