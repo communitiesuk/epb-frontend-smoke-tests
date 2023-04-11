@@ -18,6 +18,9 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: write
+
     env:
       CYPRESS_API_STAGE: 'production'
       # delay each command by 250ms in order to avoid triggering DDoS protection
