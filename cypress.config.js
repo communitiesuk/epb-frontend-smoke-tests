@@ -5,12 +5,12 @@ module.exports = defineConfig({
   env: {
     get_service_en_integration:
       'https://mhclg-epb-static-start-pages-integration.london.cloudapps.digital/getting-a-new-energy-certificate.html',
-    get_domain_integration: 'https://getting-new-energy-certificate-integration.digital.communities.gov.uk/',
+    get_domain_integration: 'https://getting-new-energy-certificate-integration.london.cloudapps.digital/',
     get_service_en_production: 'https://www.gov.uk/get-new-energy-certificate',
     get_domain_production: 'https://getting-new-energy-certificate.service.gov.uk/',
     find_service_en_integration:
       'https://mhclg-epb-static-start-pages-integration.london.cloudapps.digital/find-an-energy-certificate.html',
-    find_domain_integration: 'https://find-energy-certificate-integration.digital.communities.gov.uk/',
+    find_domain_integration: 'https://find-energy-certificate-integration.london.cloudapps.digital/',
     find_service_en_production: 'https://www.gov.uk/find-energy-certificate',
     find_domain_production: 'https://find-energy-certificate.service.gov.uk/',
     get_service_cy_integration:
