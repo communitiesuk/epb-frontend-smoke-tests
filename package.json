@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/communitiesuk/epb-frontend-smoke-tests#readme",
   "devDependencies": {
-    "cypress": "^12",
+    "cypress": "^13",
     "cypress-failed-log": "^2.9.2"
   }
 }
