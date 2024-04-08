@@ -40,7 +40,6 @@ jobs:
 
       - name: 'Post Cypress failures to Slack'
         uses: communitiesuk/epb-post-cypress-failures-to-slack@v1.1.0
-        if: failure()
         with:
           token: ${{ secrets.SLACK_TOKEN }}
           channel: 'team-epb'
