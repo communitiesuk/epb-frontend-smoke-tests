@@ -39,7 +39,7 @@ jobs:
         timeout-minutes: 8
 
       - name: 'Post Cypress failures to Slack'
-        uses: communitiesuk/epb-post-cypress-failures-to-slack@v1.1.0
+        uses: communitiesuk/epb-post-cypress-failures-to-slack@v1
         if: failure()
         with:
           token: ${{ secrets.SLACK_TOKEN }}
