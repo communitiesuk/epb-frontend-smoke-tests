@@ -8,7 +8,7 @@ describe('Find domestic certificate by RRN in English', () => {
       cy.origin(Cypress.env(`find_domain_${stage}`), () => {
         cy.get('#label-domestic').click()
         cy.contains('button', 'Continue').click()
-        cy.contains('find an EPC by using its certificate number').click()
+        cy.contains('find an energy certificate by using its certificate number').click()
         cy.get('input[name=reference_number]').type('9038-0010-6222-8839-5964')
         cy.contains('button', 'Find').click()
       })
@@ -30,12 +30,11 @@ describe('Find domestic certificate by RRN in Welsh', () => {
       cy.origin(Cypress.env(`find_domain_${stage}`), () => {
         cy.get('#label-domestic').click()
         cy.contains('Parhau').click()
-        cy.contains('chwilio am EPC drwy ddefnyddio rhif y dystysgrif').click()
+        cy.contains('chwilio am dystysgrif ynni drwy ddefnyddio rhif y dystysgrif').click()
         cy.get('input[name=reference_number]').type('9038-0010-6222-8839-5964')
         cy.contains('button', 'Chwiliwch').click()
       })
     })
-
     it('shows the certificate with the expected header', () => {
       cy.origin(Cypress.env(`find_domain_${stage}`), () => {
         cy.get('body').should('contain', 'Tystysgrif perfformiad ynni (EPC)')
