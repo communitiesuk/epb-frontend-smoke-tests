@@ -30,7 +30,7 @@ describe('Find domestic certificate by RRN in Welsh', () => {
       cy.origin(Cypress.env(`find_domain_${stage}`), () => {
         cy.get('#label-domestic').click()
         cy.contains('Parhau').click()
-        cy.contains('ddod o hyd i dystysgrif ynni drwy ddefnyddio rhif y dystysgrif').click()
+        cy.contains('chwilio am dystysgrif ynni drwy ddefnyddio rhif y dystysgrif').click()
         cy.get('input[name=reference_number]').type('9038-0010-6222-8839-5964')
         cy.contains('button', 'Chwiliwch').click()
       })
