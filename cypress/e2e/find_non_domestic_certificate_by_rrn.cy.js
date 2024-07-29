@@ -27,7 +27,8 @@ describe('Find non-domestic certificate by postcode (Welsh)', () => {
     cy.origin(Cypress.env(`find_domain_${stage}`), () => {
       cy.get('#label-non-domestic').click()
       cy.contains('Parhau').click()
-      cy.contains('ddod o hyd i dystysgrif ynni drwy ddefnyddio rhif y dystysgrif').click()
+      // find a find a certificate by using its certificate number
+      cy.contains('chwilio am dystysgrif drwy ddefnyddio’i rhif tystysgrif').click()
       cy.get('input[name=reference_number]').type('0060-8260-7119-7386-8570')
       cy.contains('button', 'Chwiliwch').click()
     })
