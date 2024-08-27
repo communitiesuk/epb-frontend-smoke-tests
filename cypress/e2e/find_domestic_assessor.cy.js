@@ -11,7 +11,7 @@ describe('Find a Domestic Assessor (English)', () => {
       cy.contains('Continue').click()
       cy.get('input[name=postcode]').type('SW1A 2AA')
       cy.contains('button', 'Find').click()
-      cy.get('body').should('contain', 'assessors in order of distance from SW1A 2AA')
+      cy.get('body').should('contain', 'TEST FAIL assessors in order of distance from SW1A 2AA')
     })
   })
 })
