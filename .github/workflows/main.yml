@@ -31,8 +31,6 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.KEV_PAT_FOR_REPO }}
 
       - name: Run smoke tests using Cypress
         uses: cypress-io/github-action@v6
@@ -48,5 +46,7 @@ jobs:
           channel: 'team-epb'
           message-text: '🔥 EPB Frontend smoke test failure'
 
-      - name: 'Write a dummy commit to keep smoke tests alive if needed'
-        uses: gautamkrishnar/keepalive-workflow@v1
+#      This has been disabled by GitHub at the moment (2025-04-23)
+#      causing the workflow to fail
+#      - name: 'Write a dummy commit to keep smoke tests alive if needed'
+#        uses: gautamkrishnar/keepalive-workflow@v1
