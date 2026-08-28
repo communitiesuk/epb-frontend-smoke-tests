@@ -15,7 +15,7 @@
     "url": "git+https://github.com/communitiesuk/epb-frontend-smoke-tests.git"
   },
   "engines": {
-    "node": "~22"
+    "node": ">= 22"
   },
   "author": "",
   "license": "ISC",
